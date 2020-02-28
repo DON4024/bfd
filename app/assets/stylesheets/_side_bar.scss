@@ -1,0 +1,49 @@
+.side-bar-left {
+  @include box-prop (180px, 100vh, oldlace);
+  float: left;
+  &__appri-name {
+    // height: 120px;
+    // background-color: skyblue;
+    border-radius: 40px;
+    margin: 15px;
+    background-image: url('bfd-logo.png');
+    width: 150px;
+    height: 150px;
+    background-position: center;
+    background-size: contain; //width, heightと同じになる
+    background-repeat: no-repeat;
+    
+    
+  }
+  &__group-list {
+    overflow: scroll;
+    background-color: oldlace;
+    padding: 0 20px 0 20px;
+    .user-name {
+      @include box-prop (140px, 50px, "");
+      line-height: 50px;
+      text-align: center;
+      font-size: 20px;
+      border-radius: 10px;
+      box-shadow:  0 0 10px 10px rgba(rgb(14, 88, 185),0.2)inset;
+      margin: 10px 0 0;
+      .user-name-link {
+        text-decoration: none;
+        color: black;
+      }
+    }
+    .sign-in{
+      @extend .user-name;
+    }
+    .write-message{
+      @extend .user-name;
+    }
+    .my-favorite{
+      @extend .user-name;
+    }
+  }
+}
+.side-bar-right {
+  @include box-prop (180px, 100vh, oldlace);
+  float: right;
+}
