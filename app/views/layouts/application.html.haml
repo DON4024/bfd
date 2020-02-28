@@ -12,10 +12,10 @@
       - if user_signed_in? 
         .side-bar-left__group-list
           .user-name
-            = link_to edit_user_path(current_user), class: "user-name-link" do
+            = link_to edit_user_path(current_user), class: "btn" do
               = current_user.nickname
           .sign-in
-            log out
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
           .write-message
             新規投稿
           .my-favorite
