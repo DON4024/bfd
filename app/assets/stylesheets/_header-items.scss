@@ -1,0 +1,8 @@
+&__image {
+  @include box-prop (100%, 85%, none);
+  text-align: center;
+}
+&__nickname {
+  @include box-prop (100%, 15%, none);
+  text-align: center;
+}

@@ -1,0 +1,92 @@
+.app-main {
+  @include box-prop (calc(100vw - 360px), 100vh, none);
+  float: left;
+  display: block;
+  overflow: scroll;
+  padding: 0 3px;
+  &__header{
+    border-top: double 7px rgb(185, 14, 43);
+    border-bottom: double 7px rgb(185, 14, 43);
+    &__message {
+      height: 50px;
+      @include flex_between(flex, space-around);
+      .list1 {
+        width: 30%;
+        color: red;
+        text-align: center;
+        padding-top: 20px;
+      }
+      .list2 {
+        @extend .list1;
+      }
+      .list3 {
+        @extend .list1;
+      }
+    }
+    &__items{
+      @include box-prop (100%, 300px, $color-fff);
+      @include flex_between(flex, space-around);
+      .right-items {
+        width: 30%;
+        box-shadow:  0 -10px 10px  rgba(rgb(185, 14, 43),0.2);
+        @import "header-items";
+      }
+      .center-items {
+        @extend .right-items;
+        @import "header-items";
+      }
+      .left-items {
+        @extend .right-items;
+        @import "header-items";
+      }
+    }
+  }
+      
+  
+  &__body {
+    &__group {
+      @include box-prop (100%, 300px, none);
+      box-shadow:  0 -10px 10px  rgba(rgb(14, 88, 185),0.2)inset;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      .picture-image {
+        @include box-prop (400px, 300px, none);
+      }
+      .review-group {
+        @include box-prop (300px, 300px,none);
+        .picture-name {
+          @include box-prop (300px, 50px, none);
+        }
+        .review-items{
+          height: calc(100%-50px);
+          @include box-prop (100%, 250px, none);
+          &__icons{
+            display: flex;
+            justify-content: space-around;
+            @include box-prop (100%, 170px, none);
+            &__left {
+              @include box-prop (80px, 80px, rgb(146, 223, 59));
+              border-radius: 40px;
+              margin: 45px 0;
+            }
+            &__center{
+              @extend .review-items__icons__left;
+            }
+            &__right{
+              @extend .review-items__icons__left;
+            }
+          }
+        
+          &__comments{
+            .comments-box{
+              @include box-prop (100%, 80px, rgb(146, 223, 59));
+            }
+          }
+        }
+        
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.app-main
+  .app-main__header
+    .app-main__header__message
+      .list1
+        総合１位　
+      .list2
+        部門別１位
+      .list3
+        部門別１位
+    .app-main__header__items
+      .right-items
+        .right-items__image
+          image1
+        .right-items__nickname
+          name
+      .center-items
+        .center-items__image
+          image2
+        .center-items__nickname
+          name2
+      .left-items
+        .left-items__image
+          image3
+        .left-items__nickname
+          name3
+
+
+  .app-main__body
+    -# - @pictures.each do |picture|
+    .app-main__body__group
+      .picture-image
+        image
+        .review-group
+          .picture-name
+            name1
+          .review-items
+            .review-items__icons
+              .review-items__icons__left
+              .review-items__icons__center
+              .review-items__icons__right
+            .review-items__comments
+              .comments-box
+                コメントをどうぞ
+              -# = form_for
+
+
+
