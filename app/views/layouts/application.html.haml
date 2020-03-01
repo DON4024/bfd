@@ -8,7 +8,8 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
     .side-bar-left
-      .side-bar-left__appri-name
+      = link_to :back, class: 'btn' do
+        .side-bar-left__appri-name
       - if user_signed_in? 
         .side-bar-left__group-list
           .user-name
@@ -23,14 +24,17 @@
       - else 
         .side-bar-left__group-list
           .sign-in
-            sign up
+            = link_to new_user_registration_path, class: "btn" do
+              sign up
           .write-message
-            sign in
+            = link_to new_user_session_path, class: "btn" do
+              sign in
         
       
     .side-bar-right
  
  
   %body
+    = render 'layouts/notifications'
     = yield
 
