@@ -7,11 +7,16 @@
     .account-page__inner--right.user-form
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = devise_error_messages!
-        .field
-          .field-label
-            = f.label :nickname
-          .field-input
-            = f.text_field :nickname, autofocus: true
+        .field__image
+          .field-name
+            .field-label
+              = f.label :nickname
+            .field-input
+              = f.text_field :nickname, autofocus: true
+          = f.label :image, class: 'innner-box' ,autofocus: true do
+            = icon('fas','user-alt fa-9x', class: 'input-box__image') 
+            = f.file_field :image, class: 'hidden'
+            %span<>
         .field
           .field-label
             = f.label :email
@@ -30,3 +35,4 @@
             = f.password_field :password_confirmation, autocomplete: "off"
         .actions
           = f.submit "Create Account", class: 'btn'
+<i class="fas fa-user-alt"></i>
