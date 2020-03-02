@@ -45,19 +45,25 @@
   
   &__body {
     &__group {
-      @include box-prop (100%, 300px, none);
+      @include box-prop (700px, 300px, none);
       box-shadow:  0 -10px 10px  rgba(rgb(14, 88, 185),0.2)inset;
       margin: 0 auto;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       margin-top: 30px;
       .picture-image {
-        @include box-prop (400px, 300px, none);
+        @include box-prop (300px, 300px, none);
+        .image-url {
+          width: 280px;
+          height: 280px;
+        }
       }
       .review-group {
         @include box-prop (300px, 300px,none);
         .picture-name {
           @include box-prop (300px, 50px, none);
+          font-size: 40px;
+          text-align: center;
         }
         .review-items{
           height: calc(100%-50px);

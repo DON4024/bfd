@@ -10,7 +10,7 @@
     .app-main__header__items
       .right-items
         .right-items__image
-          image1
+          image
         .right-items__nickname
           name
       .center-items
@@ -26,13 +26,13 @@
 
 
   .app-main__body
-    -# - @pictures.each do |picture|
-    .app-main__body__group
-      .picture-image
-        image
+    - @pictures.each do |picture|
+      .app-main__body__group
+        .picture-image
+          = image_tag picture.image.url, class: "image-url", alt: "image.url"
         .review-group
           .picture-name
-            name1
+            = picture.user.nickname
           .review-items
             .review-items__icons
               .review-items__icons__left

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pictures#index"
-  resources :pictures, except: :index
+  resources :pictures
   resources :users, only: [:edit, :update, :show]
   
 end
