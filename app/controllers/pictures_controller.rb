@@ -2,7 +2,8 @@ class PicturesController < ApplicationController
   
   def index
     @pictures = Picture.includes(:user)
-    @comment =Comment.new
+    @comment = Comment.new
+    @favorites = Favorite.all
     
     
   end

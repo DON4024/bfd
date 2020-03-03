@@ -30,7 +30,12 @@
       
       .app-main__body__group
         .picture-image
-          = image_tag picture.image.url, class: "image-url", alt: "image.url"
+          - if current_user.already_liked?(picture)
+            = link_to favorite_path(picture.id), method: :delete do
+              = image_tag picture.image.url, class: "image-url", alt: "image.url"
+          - else
+            = link_to picture_add_path(picture.id), method: :post do
+              = image_tag picture.image.url, class: "image-url", alt: "image.url"
         .review-group
           .picture-name
             = picture.user.nickname
@@ -41,13 +46,13 @@
               .review-items__icons__right
             .review-items__comments
               .comments-box
-                - if user_signed_in? && current_user
-                - elseif user_signed_in?
+                - if user_signed_in? && current_user.id == picture.user_id
+                  .input-box
+                - elsif user_signed_in? 
                   -@picture = picture
                   = form_for  [@picture, @comment] do |f|
                     .input-box
                       = f.text_field :comments, class: 'message-box', placeholder: 'コメントをどうぞ' 
                       = f.submit 'Send', class: 'submit-btn'
-                - else
-                  .input-box
-  
+              
+              

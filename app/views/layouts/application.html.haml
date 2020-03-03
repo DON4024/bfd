@@ -87,50 +87,17 @@
  
         .like-image-lists
           .like-user-message
-            お気に入りメッセージ
+            お気に入り写真
           .like-image-box
-            .like-image-items
-              = link_to "#", class: "like-btn" do
-                .like-image-items__icon
-                  = image_tag "#", class: "current-user-image"
-                .like-image-items__nickname
-                  hello
-            .like-image-items
-              = link_to "#", class: "like-btn" do
-                .like-image-items__icon
-                  = image_tag "#", class: "current-user-image"
-                .like-image-items__nickname
-                  hello
-            .like-image-items
-              = link_to "#", class: "like-btn" do
-                .like-image-items__icon
-                  = image_tag "#", class: "current-user-image"
-                .like-image-items__nickname
-                  hello
-            .like-image-items
-              = link_to "#", class: "like-btn" do
-                .like-image-items__icon
-                  = image_tag "#", class: "current-user-image"
-                .like-image-items__nickname
-                  hello
-            .like-image-items
-              = link_to "#", class: "like-btn" do
-                .like-image-items__icon
-                  = image_tag "#", class: "current-user-image"
-                .like-image-items__nickname
-                  hello
-            .like-image-items
-              = link_to "#", class: "like-btn" do
-                .like-image-items__icon
-                  = image_tag "#", class: "current-user-image"
-                .like-image-items__nickname
-                  hello
-            .like-image-items
-              = link_to "#", class: "like-btn" do
-                .like-image-items__icon
-                  = image_tag "#", class: "current-user-image"
-                .like-image-items__nickname
-                  hello
+            - @favorites.each do |favorite|
+              .like-image-items
+                = link_to "#", class: "like-btn" do
+                  .like-image-items__icon
+                    = image_tag favorite.picture.image.url, class: "current-user-image" 
+                      
+                  -# .like-image-items__nickname
+                  -#   = favorite.picture.user.nickname
+            
       - else
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200302102424) do
+ActiveRecord::Schema.define(version: 20200303032123) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "comments"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20200302102424) do
     t.datetime "updated_at", null: false
     t.index ["picture_id"], name: "index_comments_on_picture_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "picture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["picture_id"], name: "index_favorites_on_picture_id", using: :btree
+    t.index ["user_id", "picture_id"], name: "index_favorites_on_user_id_and_picture_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_favorites_on_user_id", using: :btree
   end
 
   create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -48,5 +58,7 @@ ActiveRecord::Schema.define(version: 20200302102424) do
 
   add_foreign_key "comments", "pictures"
   add_foreign_key "comments", "users"
+  add_foreign_key "favorites", "pictures"
+  add_foreign_key "favorites", "users"
   add_foreign_key "pictures", "users"
 end
