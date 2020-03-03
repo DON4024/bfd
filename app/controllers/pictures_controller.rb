@@ -2,6 +2,9 @@ class PicturesController < ApplicationController
   
   def index
     @pictures = Picture.includes(:user)
+    @comment =Comment.new
+    
+    
   end
 
   def new
@@ -14,6 +17,7 @@ class PicturesController < ApplicationController
     redirect_to root_path
   end
 
+ 
   
 
   private

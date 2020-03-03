@@ -66,7 +66,6 @@
           text-align: center;
         }
         .review-items{
-          height: calc(100%-50px);
           @include box-prop (100%, 250px, none);
           &__icons{
             display: flex;
@@ -75,7 +74,7 @@
             &__left {
               @include box-prop (80px, 80px, rgb(146, 223, 59));
               border-radius: 40px;
-              margin: 45px 0;
+              margin: 70px 0 20px;
             }
             &__center{
               @extend .review-items__icons__left;
@@ -86,8 +85,19 @@
           }
         
           &__comments{
+            width: 100%;
+            height: 80px;
             .comments-box{
-              @include box-prop (100%, 80px, rgb(146, 223, 59));
+              display: flex;
+              justify-content: space-evenly;
+              .message-box {
+                width: 230px;
+                height: 40px;
+              }
+              .submit-btn {
+                width: 50px;
+                height: 40px;
+              }
             }
           }
         }
