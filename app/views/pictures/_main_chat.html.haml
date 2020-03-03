@@ -27,6 +27,7 @@
 
   .app-main__body
     - @pictures.each do |picture|
+      
       .app-main__body__group
         .picture-image
           = image_tag picture.image.url, class: "image-url", alt: "image.url"
@@ -40,8 +41,13 @@
               .review-items__icons__right
             .review-items__comments
               .comments-box
-                コメントをどうぞ
-              -# = form_for
-
-
-
+                - if user_signed_in? && current_user
+                - elseif user_signed_in?
+                  -@picture = picture
+                  = form_for  [@picture, @comment] do |f|
+                    .input-box
+                      = f.text_field :comments, class: 'message-box', placeholder: 'コメントをどうぞ' 
+                      = f.submit 'Send', class: 'submit-btn'
+                - else
+                  .input-box
+  
