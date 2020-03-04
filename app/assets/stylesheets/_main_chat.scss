@@ -64,6 +64,10 @@
           @include box-prop (300px, 50px, none);
           font-size: 40px;
           text-align: center;
+          .follows {
+            text-decoration: none;
+            
+          }
         }
         .review-items{
           @include box-prop (100%, 250px, none);
