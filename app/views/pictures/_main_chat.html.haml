@@ -38,7 +38,16 @@
               = image_tag picture.image.url, class: "image-url", alt: "image.url"
         .review-group
           .picture-name
-            = picture.user.nickname
+            - unless current_user.id == picture.user.id
+              - if current_user.following?(picture.user)
+                - @follow = current_user.relationships.find_by(follow_id: picture.user.id)
+                = link_to relationship_path(@follow, follow_id: picture.user.id), method: :delete do
+                  =picture.user.nickname
+              - else
+                = link_to relationships_path(relationships: relationships_url, follow_id: picture.user.id),method: :post do
+                  =picture.user.nickname
+            - else
+              =picture.user.nickname
           .review-items
             .review-items__icons
               .review-items__icons__left
@@ -49,10 +58,19 @@
                 - if user_signed_in? && current_user.id == picture.user_id
                   .input-box
                 - elsif user_signed_in? 
-                  -@picture = picture
+                  - @picture = picture
                   = form_for  [@picture, @comment] do |f|
                     .input-box
                       = f.text_field :comments, class: 'message-box', placeholder: 'コメントをどうぞ' 
                       = f.submit 'Send', class: 'submit-btn'
+
+
+-# = form_for(current_user.relationships.new) do |f|
+-#   = f.hidden_field :follow_id, value: picture.user.id 
+-#   = f.button class: 'follows' do
+-# = form_for(current_user.relationships.find_by(follow_id: user.id), html: { method: :delete }) do |f|
+-#   = f.hidden_field :follow_id, value: picture.user.id 
+-#   = f.submit 'フォロー中', class: 'follow-now'
               
-              
+-# = link_to relationships_path, follow_id: picture.user.id, method: :post do
+      -# = picture.user.nickname

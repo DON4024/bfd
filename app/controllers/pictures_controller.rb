@@ -10,6 +10,7 @@ class PicturesController < ApplicationController
 
   def new
     @picture = Picture.new
+    @favorites = Favorite.all
   end
 
 
