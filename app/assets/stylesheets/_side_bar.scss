@@ -65,7 +65,7 @@
   position: relative;
   .like-user-lists {
     width: 100%;
-    height: 50%;
+    height: 50vh;
     .like-user-message {
       font-weight: bold;
       text-align: center;
@@ -80,25 +80,24 @@
         height: 50px;
         margin: 10px auto;
         font-size: 20px;
-        border-radius: 10px;
-        box-shadow:  0 0 10px 10px rgba(rgb(14, 88, 185),0.2)inset;
         .like-btn {
-          display: flex;
-          justify-content: space-around;
           .like-user-items__icon {
-            height: 40px;
-            width: 40px;
-            border-radius: 20px;
-            background-color: orange;
-            margin: auto 10px;
-          }
-          .like-user-items__nickname {
-            width: 60%;
-            height: 90%;
-            line-height: 50px;
             text-align: center;
-  
+            
+            .current-user-image {
+              width: 140px;
+              height: 140px;
+              box-shadow: 0 0 10px 10px rgba(231, 128, 11, 0.3);
+          
+              .like-user-items__nickname {
+                width: 20px;
+                height: 20px;
+                line-height: 20px;
+                text-align: right;
+              }
+            }
           }
+          
         }
       }
     }
@@ -131,13 +130,6 @@
               border-radius: 70px;
               box-shadow:  0 0 10px 10px rgba(rgb(14, 88, 185),0.2);
             }
-          }
-          .like-image-items__nickname {
-            width: 60%;
-            height: 90%;
-            line-height: 50px;
-            text-align: center;
-
           }
         }
       }

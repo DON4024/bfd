@@ -17,7 +17,7 @@ class RelationshipsController < ApplicationController
     following = current_user.unfollow(user)
     if following.destroy
       redirect_to root_path
-    else¥
+    else
       redirect_to root_path
     end
   end

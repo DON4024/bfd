@@ -30,23 +30,29 @@
       
       .app-main__body__group
         .picture-image
-          - if current_user.already_liked?(picture)
-            = link_to favorite_path(picture.id), method: :delete do
-              = image_tag picture.image.url, class: "image-url", alt: "image.url"
-          - else
-            = link_to picture_add_path(picture.id), method: :post do
-              = image_tag picture.image.url, class: "image-url", alt: "image.url"
+          - if user_signed_in?
+            - if current_user.already_liked?(picture)
+              = link_to favorite_path(picture.id), method: :delete do
+                = image_tag picture.image.url, class: "image-url", alt: "image.url"
+            - else
+              = link_to picture_add_path(picture.id), method: :post do
+                = image_tag picture.image.url, class: "image-url", alt: "image.url"
+          - else 
+            = image_tag picture.image.url, class: "image-url", alt: "image.url"
         .review-group
           .picture-name
-            - unless current_user.id == picture.user.id
-              - if current_user.following?(picture.user)
-                - @follow = current_user.relationships.find_by(follow_id: picture.user.id)
-                = link_to relationship_path(@follow, follow_id: picture.user.id), method: :delete do
-                  =picture.user.nickname
+            - if user_signed_in?
+              - unless current_user.id == picture.user.id
+                - if current_user.following?(picture.user)
+                  - @follow = current_user.relationships.find_by(follow_id: picture.user.id)
+                  = link_to relationship_path(@follow, follow_id: picture.user.id), method: :delete do
+                    =picture.user.nickname
+                - else
+                  = link_to relationships_path(relationships: relationships_url, follow_id: picture.user.id),method: :post do
+                    =picture.user.nickname
               - else
-                = link_to relationships_path(relationships: relationships_url, follow_id: picture.user.id),method: :post do
-                  =picture.user.nickname
-            - else
+                =picture.user.nickname
+            - else 
               =picture.user.nickname
           .review-items
             .review-items__icons

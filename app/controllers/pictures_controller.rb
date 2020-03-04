@@ -4,7 +4,7 @@ class PicturesController < ApplicationController
     @pictures = Picture.includes(:user)
     @comment = Comment.new
     @favorites = Favorite.all
-    
+    @following = Relationship.all
     
   end
 
