@@ -2,32 +2,31 @@
   .app-main__header
     .app-main__header__message
       .list1
-        総合１位　
+        King of COOL
       .list2
-        部門別１位
+        King of CUTE
       .list3
-        部門別１位
+        King of CREEPY
     .app-main__header__items
       .right-items
         .right-items__image
-          image
+          = image_tag @coolest.image, class: "coolest-pic"
         .right-items__nickname
-          name
+          = @coolest.user.nickname
       .center-items
         .center-items__image
-          image2
+          = image_tag @cutest.image, class: "cutest-pic"
         .center-items__nickname
-          name2
+          = @cutest.user.nickname
       .left-items
         .left-items__image
-          image3
+          = image_tag @creepiest.image, class: "creepiest-pic"
         .left-items__nickname
-          name3
+          = @creepiest.user.nickname
 
 
   .app-main__body
     - @pictures.each do |picture|
-      
       .app-main__body__group
         .picture-image
           - if user_signed_in?
