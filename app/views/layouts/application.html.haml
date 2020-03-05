@@ -23,7 +23,8 @@
           .write-message
             = link_to "新規投稿", new_picture_path, class: 'btn'
           .my-favorite
-            お気に入り
+            = link_to user_path(current_user.id), class: "btn" do
+              マイページ
       - else 
         .side-bar-left__group-list
           .sign-in
@@ -42,7 +43,7 @@
           .like-user-box
             - @following.each do |following|
               .like-user-items
-                = link_to "#", class: "like-btn" do
+                = link_to user_path(search_id(following)), class: "like-btn" do
                   .like-user-items__icon
                     = image_tag following.follow.image, class: "current-user-image", alt: "no image" do
                       .like-user-items__nickname

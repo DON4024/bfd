@@ -18,9 +18,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @favorites = Favorite.where(user_id: current_user.id)
-    @following = Relationship.all
-    @picture= current_user.pictures
+    @favorites = Favorite.where(user_id: params[:id])
+    @following = Relationship.where(user_id: params[:id])
   end
 
 
