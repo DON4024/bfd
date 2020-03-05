@@ -18,6 +18,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    user = User.find(params[:id])
+    @nickname = user.nickname
+    @picture = user.image
+    @pictuers = user.pictures
+
     @favorites = Favorite.where(user_id: params[:id])
     @following = Relationship.where(user_id: params[:id])
   end
