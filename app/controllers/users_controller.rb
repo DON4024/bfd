@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   
   def edit
+    @favorites = Favorite.all
+    @following = Relationship.all
   end
 
   def update
