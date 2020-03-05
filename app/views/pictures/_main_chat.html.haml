@@ -38,7 +38,7 @@
               = link_to favorite_path(picture.id, judg_id: 4), method: :delete do
                 = image_tag picture.image.url, class: "image-url", alt: "image.url"
             - else
-              = link_to picture_add_path(picture.id, judg_id: 4), method: :post do
+              = link_to picture_add_path(picture_id: picture.id, judg_id: 4), method: :post do
                 = image_tag picture.image.url, class: "image-url", alt: "image.url"
           - else 
             = image_tag picture.image.url, class: "image-url", alt: "image.url"
