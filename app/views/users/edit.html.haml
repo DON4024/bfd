@@ -5,15 +5,33 @@
       %h5 アカウントの編集
     .account-page__inner--right.user-form
       = form_for(current_user) do |f|
-        .field
-          .field-label
-            = f.label :name
-          .field-input
-            = f.text_field :nickname, autofocus: true
+        .field__image
+          .field-name
+            .field-label
+              = f.label :nickname
+            .field-input
+              = f.text_field :nickname, autofocus: true
+          = f.label :image, class: 'innner-box' ,autofocus: true do
+            = icon('fas','user-alt fa-9x', class: 'input-box__image') 
+            = f.file_field :image, class: 'hidden' do
+              %span<>
         .field
           .field-label
             = f.label :email
           .field-input
             = f.email_field :email
+        .field
+          .field-label
+            = f.label :password
+            %i (英数字8文字以上)
+          .field-input
+            = f.password_field :password, autocomplete: "off", placeholder: 'まだ変更できるよう設定されていません'
+        .field
+          .field-label
+            = f.label :password_confirmation
+          .field-input
+            = f.password_field :password_confirmation, autocomplete: "off", placeholder: 'まだ変更できるよう設定されていません'
         .actions
           = f.submit "Update", class: 'btn'
+
+          
