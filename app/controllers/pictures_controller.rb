@@ -3,6 +3,7 @@ class PicturesController < ApplicationController
   def index
     @pictures = Picture.includes(:user)
     @comment = Comment.new
+    
     if user_signed_in?
       @favorites = Favorite.where(user_id: current_user.id)
       @following = Relationship.where(user_id: current_user.id)
@@ -20,6 +21,7 @@ class PicturesController < ApplicationController
   def new
     @picture = Picture.new
     @favorites = Favorite.all
+    @following = Relationship.where(user_id: current_user.id)
   end
 
 
