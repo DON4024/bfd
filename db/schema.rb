@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200303103524) do
+ActiveRecord::Schema.define(version: 20200304104722) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "comments"
@@ -20,6 +20,36 @@ ActiveRecord::Schema.define(version: 20200303103524) do
     t.datetime "updated_at", null: false
     t.index ["picture_id"], name: "index_comments_on_picture_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "cools", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "picture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["picture_id"], name: "index_cools_on_picture_id", using: :btree
+    t.index ["user_id", "picture_id"], name: "index_cools_on_user_id_and_picture_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_cools_on_user_id", using: :btree
+  end
+
+  create_table "creepies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "picture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["picture_id"], name: "index_creepies_on_picture_id", using: :btree
+    t.index ["user_id", "picture_id"], name: "index_creepies_on_user_id_and_picture_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_creepies_on_user_id", using: :btree
+  end
+
+  create_table "cutes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "picture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["picture_id"], name: "index_cutes_on_picture_id", using: :btree
+    t.index ["user_id", "picture_id"], name: "index_cutes_on_user_id_and_picture_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_cutes_on_user_id", using: :btree
   end
 
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -68,6 +98,12 @@ ActiveRecord::Schema.define(version: 20200303103524) do
 
   add_foreign_key "comments", "pictures"
   add_foreign_key "comments", "users"
+  add_foreign_key "cools", "pictures"
+  add_foreign_key "cools", "users"
+  add_foreign_key "creepies", "pictures"
+  add_foreign_key "creepies", "users"
+  add_foreign_key "cutes", "pictures"
+  add_foreign_key "cutes", "users"
   add_foreign_key "favorites", "pictures"
   add_foreign_key "favorites", "users"
   add_foreign_key "pictures", "users"

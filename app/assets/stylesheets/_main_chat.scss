@@ -76,15 +76,19 @@
             justify-content: space-around;
             @include box-prop (100%, 170px, none);
             &__left {
-              @include box-prop (80px, 80px, rgb(146, 223, 59));
+              @include box-prop (80px, 80px, rgb(206, 179, 26));
               border-radius: 40px;
               margin: 70px 0 20px;
             }
             &__center{
-              @extend .review-items__icons__left;
+              @include box-prop (80px, 80px, rgb(206, 50, 206));
+              border-radius: 40px;
+              margin: 70px 0 20px;
             }
             &__right{
-              @extend .review-items__icons__left;
+              @include box-prop (80px, 80px, rgb(26, 134, 206));
+              border-radius: 40px;
+              margin: 70px 0 20px;
             }
           }
         
