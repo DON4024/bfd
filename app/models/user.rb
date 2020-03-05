@@ -42,17 +42,14 @@ class User < ApplicationRecord
 
   def already_liked?(picture: , favorite: 0, cool: 0, cute: 0, creepy: 0)
     if favorite == 1
-      self.favorites.exists?(picture_id: picture.id)
-      return
+      return self.favorites.exists?(picture_id: picture.id)
+      
     elsif cool == 2
-      self.cools.exists?(picture_id: picture.id)
-      return
+      return self.cools.exists?(picture_id: picture.id)
     elsif cute == 3
-      self.cutes.exists?(picture_id: picture.id)
-      return
+      return self.cutes.exists?(picture_id: picture.id)
     elsif creepy == 4
-      self.creepies.exists?(picture_id: picture.id)
-      return
+      return self.creepies.exists?(picture_id: picture.id)
     end
   end
 
@@ -71,7 +68,7 @@ class User < ApplicationRecord
     self.followings.include?(other_user)
   end
 
-  def judgment(judg: judg, user_id: user_id, picture_id: picture_id)
+  def judgment_new(judg: judg, user_id: user_id, picture_id: picture_id)
     if judg == "1"
       return Cool.new(picture_id: picture_id, user_id: user_id)
       
@@ -83,6 +80,21 @@ class User < ApplicationRecord
       
     elsif judg == "4"
       return Favorite.new(picture_id: picture_id, user_id: user_id)
+    end
+  end
+
+  def judgment_destroy(judg: judg, user_id: user_id, picture_id: picture_id)
+    if judg == "1"
+      return Cool.find_by(picture_id: picture_id, user_id: user_id)
+      
+    elsif judg == "2"
+      return cute = Cute.find_by(picture_id: picture_id, user_id: user_id)
+      
+    elsif judg == "3"
+      return Creepy.find_by(picture_id: picture_id, user_id: user_id)
+      
+    elsif judg == "4"
+      return Favorite.find_by(picture_id: picture_id, user_id: user_id)
       
     end
     
