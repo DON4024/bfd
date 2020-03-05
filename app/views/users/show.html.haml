@@ -2,10 +2,10 @@
   .show-header__lists
     .user-lists
       .user-name
-        = current_user.nickname
+        = @nickname
       .user-icon
         = link_to edit_user_path(current_user), class: "user-btn" do
-          = image_tag current_user.image.url, class: "user-image"
+          = image_tag @picture, class: "user-image"
     .btn-lists
       .sign-in
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
