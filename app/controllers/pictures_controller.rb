@@ -3,8 +3,17 @@ class PicturesController < ApplicationController
   def index
     @pictures = Picture.includes(:user)
     @comment = Comment.new
-    @favorites = Favorite.all
-    @following = Relationship.all
+    if user_signed_in?
+      @favorites = Favorite.where(user_id: current_user.id)
+      @following = Relationship.where(user_id: current_user.id)
+      
+      pic_id = Cool.group(:picture_id).order('count(picture_id) desc').limit(1).pluck(:picture_id)
+      @coolest = Picture.find_by(id: pic_id)
+      pic_id = Cute.group(:picture_id).order('count(picture_id) desc').limit(1).pluck(:picture_id)
+      @cutest = Picture.find_by(id: pic_id)
+      pic_id = Creepy.group(:picture_id).order('count(picture_id) desc').limit(1).pluck(:picture_id)
+      @creepiest = Picture.find_by(id: pic_id)
+    end
     
   end
 
