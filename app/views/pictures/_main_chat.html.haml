@@ -10,19 +10,23 @@
     .app-main__header__items
       .right-items
         .right-items__image
-          = image_tag @coolest.image, class: "coolest-pic"
+          -# = link_to user_path(@coolest.user_id), method: :delete do
+            = image_tag @coolest.image, class: "coolest-pic"
         .right-items__nickname
-          = @coolest.user.nickname
+          = link_to user_path(@coolest.user_id), method: :delete do
+            = @coolest.user.nickname
       .center-items
         .center-items__image
           = image_tag @cutest.image, class: "cutest-pic"
         .center-items__nickname
-          = @cutest.user.nickname
+          = link_to user_path(@cutest.user_id), method: :delete do
+            = @cutest.user.nickname
       .left-items
         .left-items__image
           = image_tag @creepiest.image, class: "creepiest-pic"
         .left-items__nickname
-          = @creepiest.user.nickname
+          = link_to user_path(@creepiest.user_id), method: :delete do
+            = @creepiest.user.nickname
 
 
   .app-main__body

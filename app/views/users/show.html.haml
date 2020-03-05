@@ -17,7 +17,7 @@
   .following-box
     - @following.each do |following|
       .my-image-items
-        = link_to "#", class: "follow-btn" do
+        = link_to user_path(following.user_id), class: "follow-btn" do
           .my-image-items__icon
             = image_tag following.follow.image, class: "following-image", alt: "no image" do
               .like-user-items__nickname
@@ -30,7 +30,4 @@
             = image_tag favorite.picture.image.url, class: "users-image" 
 
   
-    .like-user-items
-      = link_to "#", class: "like-btn" do
-        .like-user-items__icon
-          
+    
