@@ -10,22 +10,36 @@
     .app-main__header__items
       .right-items
         .right-items__image
-          = link_to "#", method: :delete do
-            = image_tag @coolest.image, class: "coolest-pic"
+          - if current_user.already_liked?(picture: @coolest, favorite: 1)
+            = link_to favorite_path(@coolest.id, judg_id: 4), method: :delete do
+              = image_tag @coolest.image, class: "coolest-pic"
+          - else
+            = link_to picture_add_path(picture_id: @coolest.id, judg_id: 4), method: :post do
+              = image_tag @coolest.image, class: "coolest-pic"
         .right-items__nickname
-          = link_to user_path(@coolest.user_id), method: :delete do
+          = link_to user_path(@coolest.user_id) do
             = @coolest.user.nickname
       .center-items
         .center-items__image
-          = image_tag @cutest.image, class: "cutest-pic"
+          - if current_user.already_liked?(picture: @cutest, favorite: 1)
+            = link_to favorite_path(@cutest.id, judg_id: 4), method: :delete do
+              = image_tag @cutest.image, class: "coolest-pic"
+          - else
+            = link_to picture_add_path(picture_id: @cutest.id, judg_id: 4), method: :post do
+              = image_tag @cutest.image, class: "coolest-pic"
         .center-items__nickname
-          = link_to user_path(@cutest.user_id), method: :delete do
+          = link_to user_path(@cutest.user_id) do
             = @cutest.user.nickname
       .left-items
         .left-items__image
-          = image_tag @creepiest.image, class: "creepiest-pic"
+          - if current_user.already_liked?(picture: @creepiest, favorite: 1)
+            = link_to favorite_path(@creepiest.id, judg_id: 4), method: :delete do
+              = image_tag @creepiest.image, class: "coolest-pic"
+          - else
+            = link_to picture_add_path(picture_id: @creepiest.id, judg_id: 4), method: :post do
+              = image_tag @creepiest.image, class: "coolest-pic"
         .left-items__nickname
-          = link_to user_path(@creepiest.user_id), method: :delete do
+          = link_to user_path(@creepiest.user_id) do
             = @creepiest.user.nickname
 
 
