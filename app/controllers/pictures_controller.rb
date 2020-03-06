@@ -4,6 +4,7 @@ class PicturesController < ApplicationController
     judge = params[:judge]
     judge = 0 if params[:judge].nil?
     @pictures = Picture.create_all_ranks(judge)
+    @post = Picture.new
     @comment = Comment.new
     
     if user_signed_in?
@@ -25,7 +26,7 @@ class PicturesController < ApplicationController
 
   def create
     Picture.create(picture_params)
-    redirect_to root_path
+    redirect_to controller: 'pictures', action: 'index'
   end
 
  

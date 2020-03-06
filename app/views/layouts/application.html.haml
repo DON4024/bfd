@@ -24,6 +24,30 @@
           .my-favorite
             = link_to root_path(judge: 3), class: "btn" do
               並び替え(仮)
+
+          .form-post
+            = form_for [@post] do |f|
+              .field
+                = f.label :image, class: 'post-image' do
+                  = icon('fas', 'image', class: 'box__image')
+                  = f.file_field :image, class: 'hidden'
+                .field-input
+                  = f.text_field :content, class: "text-box"
+                = f.submit "投稿", class: 'subnit-btn'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       - else 
         .side-bar-left__group-list
           .sign-in
@@ -47,7 +71,7 @@
                     = image_tag following.follow.image, class: "current-user-image", alt: "no image" do
                       .like-user-items__nickname
                         don
-            
+             
 
  
         .like-image-lists

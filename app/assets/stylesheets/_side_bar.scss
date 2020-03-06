@@ -55,6 +55,33 @@
     .my-favorite{
       @extend .sign-in;
     }
+    .form-post {
+      margin-top: 50px;
+      width: 140px;
+      
+      .post-image {
+        .box__image{
+          font-size: 5em;
+          cursor: pointer;
+        }
+        .hidden {
+          display: none;
+        }
+      }
+      .text-box {
+        width: 120px;
+      }
+      .subnit-btn {
+        height: 50px;
+        background-color: $color-38aef0;
+        color: $color-fff;
+        line-height: 50px;
+        
+        padding: 0 20px 0 20px;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
     
   }
 }
