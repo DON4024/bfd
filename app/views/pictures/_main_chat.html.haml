@@ -46,13 +46,8 @@
           .picture-name
             - if user_signed_in?
               - unless current_user.id == picture.user.id
-                - if current_user.following?(picture.user)
-                  - @follow = current_user.relationships.find_by(follow_id: picture.user.id)
-                  = link_to relationship_path(@follow, follow_id: picture.user.id), method: :delete do
-                    =picture.user.nickname
-                - else
-                  = link_to relationships_path(relationships: relationships_url, follow_id: picture.user.id),method: :post do
-                    =picture.user.nickname
+                = link_to user_path(picture.user_id), class: "btn" do
+                  =picture.user.nickname
               - else
                 =picture.user.nickname
             - else 
@@ -87,14 +82,3 @@
 -#   = f.hidden_field :follow_id, value: picture.user.id 
 -#   = f.submit 'フォロー中', class: 'follow-now'
               
--# = link_to relationships_path, follow_id: picture.user.id, method: :post do
-      -# = picture.user.nickname
-        ハート
-      <i class="far fa-grin-hearts"></i>
-        cool
-      <i class="fas fa-grin-stars"></i>
-        creepy
-      <i class="far fa-flushed"></i>
-
-      -# = link_to new_group_path, class: "top-items__icons top-items__icons__edit" do
-          <i class="far fa-edit fa-sm"></i>

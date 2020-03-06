@@ -76,9 +76,9 @@
           @include box-prop (300px, 50px, none);
           font-size: 40px;
           text-align: center;
-          .follows {
+          .btn {
             text-decoration: none;
-            
+            color: black;
           }
         }
         .review-items{

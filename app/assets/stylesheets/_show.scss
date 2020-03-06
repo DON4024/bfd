@@ -10,7 +10,6 @@
       display: flex;
       width: 60%;
       .user-name {
-        
         height: 100%;
         margin: 0 20px;
         text-align: center;
@@ -22,7 +21,6 @@
         padding: 20px 0;
         .user-btn {
           height: 100%;
-        
           .user-image {
             width: 100px;
             height: 100px;
@@ -32,6 +30,29 @@
             border: black 1px solid;
             box-shadow:  0 0 10px 10px rgba(rgb(14, 88, 185),0.2)inset;
           }
+        }
+      }
+      .follow.icon {
+        width: 100px; 
+        height: 100%;
+        position: relative;
+        .unfollow {
+          border-radius: 3px;
+          box-shadow:  0 0 10px 10px rgba(rgb(14, 88, 185),0.2)inset;
+          position: absolute;
+          bottom: 20px;
+          font-size: 9px;
+          text-decoration: none;
+          color: black;
+        }
+        .follow {
+          border-radius: 3px;
+          box-shadow:  0 0 10px 10px rgba(orange,0.2)inset;
+          position: absolute;
+          bottom: 20px;
+          font-size: 9px;
+          text-decoration: none;
+          color: black;
         }
       }
     }
@@ -47,7 +68,7 @@
         font-size: 20px;
         border-radius: 10px;
         box-shadow:  0 0 10px 10px rgba(rgb(14, 88, 185),0.2)inset;
-        margin: 45px 10px;
+        margin: 70px 10px 20px;
         padding: 0 10px;
         .btn {
           text-decoration: none;

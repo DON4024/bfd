@@ -10,7 +10,13 @@
     .side-bar-left
       = link_to root_path, class: 'btn' do
         .side-bar-left__appri-name
-      
+      - if @id != current_user.id
+        .side-bar-left__group-list
+          .user-icon
+            - if current_user.image
+              = link_to edit_user_path(current_user), class: "btn" do
+                = image_tag current_user.image.url, class: "current-user-image"
+            - else
         
     
     .side-bar-right
