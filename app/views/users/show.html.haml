@@ -6,11 +6,24 @@
       .user-icon
         = link_to edit_user_path(current_user), class: "user-btn" do
           = image_tag @picture, class: "user-image"
-    .btn-lists
-      .sign-in
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
-      .write-message
-        = link_to "新規投稿", new_picture_path, class: 'btn'
+      
+      - if @id == current_user.id
+        
+      - else
+        .follow.icon
+          - if current_user.following?(@user)
+            - @follow = current_user.relationships.find_by(follow_id: @id)
+            = link_to relationship_path(@follow, follow_id: @id), method: :delete, class: "unfollow" do
+              フォローしています
+          - else
+            = link_to relationships_path(relationships: relationships_url, follow_id: @id),method: :post, class: "follow" do
+              フォローする
+    - if @id == current_user.id
+      .btn-lists
+        .sign-in
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
+        .write-message
+          = link_to "新規投稿", new_picture_path, class: 'btn'
       
     
 .show-body
