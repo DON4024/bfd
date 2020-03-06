@@ -9,8 +9,6 @@ class PicturesController < ApplicationController
     if user_signed_in?
       @favorites = Favorite.where(user_id: current_user.id)
       @following = Relationship.where(user_id: current_user.id)
-      
-      
     end
     @coolest = Picture.MostPopularPic(0)
     @cutest = Picture.MostPopularPic(1)
