@@ -10,7 +10,7 @@
     .app-main__header__items
       .right-items
         .right-items__image
-          -# = link_to user_path(@coolest.user_id), method: :delete do
+          = link_to "#", method: :delete do
             = image_tag @coolest.image, class: "coolest-pic"
         .right-items__nickname
           = link_to user_path(@coolest.user_id), method: :delete do

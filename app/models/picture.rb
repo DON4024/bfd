@@ -24,6 +24,27 @@ class Picture < ApplicationRecord
 
 
 
-  
+  def self.create_all_ranks(judge = 0) #Pictureクラスからデータを取ってくる処理なのでクラスメソッド！
+    
+    if judge == 0
+      Picture.includes(:user)
+    elsif judge == "1"
+      Picture.find(Cool.group(:picture_id).order('count(picture_id) desc').pluck(:picture_id))
+    elsif judge == "2"
+      Picture.find(Cute.group(:picture_id).order('count(picture_id) desc').pluck(:picture_id))
+    elsif judge == "3"
+      Picture.find(Creepy.group(:picture_id).order('count(picture_id) desc').pluck(:picture_id))
+    end
+  end
+
+  def self.MostPopularPic(judge) #Pictureクラスからデータを取ってくる処理なのでクラスメソッド！
+    if judge == 0
+      Picture.find_by(id: Cool.group(:picture_id).order('count(picture_id) desc').limit(1).pluck(:picture_id))
+    elsif judge == 1
+      Picture.find_by(id: Cute.group(:picture_id).order('count(picture_id) desc').limit(1).pluck(:picture_id))
+    elsif judge == 2
+      Picture.find_by(id: Creepy.group(:picture_id).order('count(picture_id) desc').limit(1).pluck(:picture_id))
+    end
+  end
 
 end
