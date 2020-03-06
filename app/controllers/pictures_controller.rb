@@ -1,20 +1,20 @@
 class PicturesController < ApplicationController
   
   def index
-    @pictures = Picture.includes(:user)
+    judge = params[:judge]
+    judge = 0 if params[:judge].nil?
+    @pictures = Picture.create_all_ranks(judge)
     @comment = Comment.new
     
     if user_signed_in?
       @favorites = Favorite.where(user_id: current_user.id)
       @following = Relationship.where(user_id: current_user.id)
       
+      
     end
-    pic_id = Cool.group(:picture_id).order('count(picture_id) desc').limit(1).pluck(:picture_id)
-    @coolest = Picture.find_by(id: pic_id)
-    pic_id = Cute.group(:picture_id).order('count(picture_id) desc').limit(1).pluck(:picture_id)
-    @cutest = Picture.find_by(id: pic_id)
-    pic_id = Creepy.group(:picture_id).order('count(picture_id) desc').limit(1).pluck(:picture_id)
-    @creepiest = Picture.find_by(id: pic_id)
+    @coolest = Picture.MostPopularPic(0)
+    @cutest = Picture.MostPopularPic(1)
+    @creepiest = Picture.MostPopularPic(2)
     
   end
 

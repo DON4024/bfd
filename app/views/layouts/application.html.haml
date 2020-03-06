@@ -25,6 +25,9 @@
           .my-favorite
             = link_to user_path(current_user.id), class: "btn" do
               マイページ
+          .my-favorite
+            = link_to root_path(judge: 3), class: "btn" do
+              並び替え
       - else 
         .side-bar-left__group-list
           .sign-in
