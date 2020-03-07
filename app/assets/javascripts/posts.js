@@ -52,11 +52,6 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      var html = buildpost(data);
-      $('#post-body').append(html);
-      $('#picture_content').val();
-      $(".submit-btn").removeAttr("disabled");
-      $('form')[0].reset();
       $( function() {
         $.ajax({
           type: 'GET',
@@ -71,9 +66,9 @@ $(function(){
             $('#post-body').append( html );
           });
         })
-        
       });
-      
+      $(".submit-btn").removeAttr("disabled");
+      $('form')[0].reset();
     })
     .fail(function(){
       alert('エラー');
