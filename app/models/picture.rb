@@ -26,7 +26,7 @@ class Picture < ApplicationRecord
 
   def self.create_all_ranks(judge = 0) #Pictureクラスからデータを取ってくる処理なのでクラスメソッド！
     
-    if judge == 0
+    if judge == "0"
       Picture.includes(:user).order('created_at desc')
     elsif judge == "1"
       Picture.find(Cool.group(:picture_id).order('count(picture_id) desc').pluck(:picture_id))

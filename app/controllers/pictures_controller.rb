@@ -2,18 +2,22 @@ class PicturesController < ApplicationController
   
   def index
     judge = params[:judge]
-    judge = 0 if params[:judge].nil?
+    judge = "0" if params[:judge].nil?
     @pictures = Picture.create_all_ranks(judge)
+    
     @post = Picture.new
     @comment = Comment.new
-    
+    @coolest = Picture.MostPopularPic(0)
+    @cutest = Picture.MostPopularPic(1)
+    @creepiest = Picture.MostPopularPic(2)
     if user_signed_in?
       @favorites = Favorite.where(user_id: current_user.id)
       @following = Relationship.where(user_id: current_user.id)
     end
-    @coolest = Picture.MostPopularPic(0)
-    @cutest = Picture.MostPopularPic(1)
-    @creepiest = Picture.MostPopularPic(2)
+    respond_to do |format|
+      format.html
+      format.json
+    end
     
   end
 
@@ -25,8 +29,15 @@ class PicturesController < ApplicationController
 
 
   def create
-    Picture.create(picture_params)
-    redirect_to controller: 'pictures', action: 'index'
+    @picture =Picture.new(picture_params)
+    if  @picture.save then
+      respond_to do |format|
+        format.json
+      end
+    else
+      flash.now[:alert] = 'メッセージを入力してください。'
+      redirect_to controller: 'pictures', action: 'index'
+    end
   end
 
  
