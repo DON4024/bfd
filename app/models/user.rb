@@ -41,6 +41,7 @@ class User < ApplicationRecord
   # end
 
   def already_liked?(picture: , favorite: 0, cool: 0, cute: 0, creepy: 0)
+    
     if favorite == 1
       return self.favorites.exists?(picture_id: picture.id)
       
