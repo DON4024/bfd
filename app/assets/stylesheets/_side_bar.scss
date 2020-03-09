@@ -131,7 +131,7 @@
   }
   .like-image-lists {
     width: 100%;
-    height: 50vh;
+    height: 100vh;
     position: absolute;
     bottom: 0;
     .like-user-message {
@@ -142,7 +142,7 @@
     }
     .like-image-box {
       overflow: scroll;
-      height: calc(50vh - 50px);
+      height: 100vh;
       .like-image-items { 
         width: 160px;
         height: 50px;

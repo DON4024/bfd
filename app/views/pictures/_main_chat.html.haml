@@ -10,34 +10,19 @@
     .app-main__header__items
       .right-items
         .right-items__image
-          - if current_user.already_liked?(picture: @coolest, favorite: 1)
-            = link_to favorite_path(@coolest.id, judg_id: 4), method: :delete do
-              = image_tag @coolest.image, class: "coolest-pic"
-          - else
-            = link_to picture_add_path(picture_id: @coolest.id, judg_id: 4), method: :post do
-              = image_tag @coolest.image, class: "coolest-pic"
+          = render partial: 'favorite', locals: { favorite: @coolest }
         .right-items__nickname
           = link_to user_path(@coolest.user_id) do
             = @coolest.user.nickname
       .center-items
         .center-items__image
-          - if current_user.already_liked?(picture: @cutest, favorite: 1)
-            = link_to favorite_path(@cutest.id, judg_id: 4), method: :delete do
-              = image_tag @cutest.image, class: "coolest-pic"
-          - else
-            = link_to picture_add_path(picture_id: @cutest.id, judg_id: 4), method: :post do
-              = image_tag @cutest.image, class: "coolest-pic"
+          = render partial: 'favorite', locals: { favorite: @cutest }
         .center-items__nickname
           = link_to user_path(@cutest.user_id) do
             = @cutest.user.nickname
       .left-items
         .left-items__image
-          - if current_user.already_liked?(picture: @creepiest, favorite: 1)
-            = link_to favorite_path(@creepiest.id, judg_id: 4), method: :delete do
-              = image_tag @creepiest.image, class: "coolest-pic"
-          - else
-            = link_to picture_add_path(picture_id: @creepiest.id, judg_id: 4), method: :post do
-              = image_tag @creepiest.image, class: "coolest-pic"
+          = render partial: 'favorite', locals: { favorite: @creepiest }
         .left-items__nickname
           = link_to user_path(@creepiest.user_id) do
             = @creepiest.user.nickname
@@ -48,12 +33,7 @@
       .app-main__body__group
         .picture-image
           - if user_signed_in?
-            - if current_user.already_liked?(picture: picture, favorite: 1)
-              = link_to favorite_path(picture.id, judg_id: 4), method: :delete do
-                = image_tag picture.image.url, class: "image-url", alt: "image.url"
-            - else
-              = link_to picture_add_path(picture_id: picture.id, judg_id: 4), method: :post do
-                = image_tag picture.image.url, class: "image-url", alt: "image.url"
+            = render partial: 'favorite', locals: { favorite: picture }
           - else 
             = image_tag picture.image.url, class: "image-url", alt: "image.url"
         .review-group

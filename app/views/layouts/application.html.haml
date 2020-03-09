@@ -34,20 +34,6 @@
                 .field-input
                   = f.text_field :content, class: "text-box"
                 = f.submit "投稿", class: 'submit-btn'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       - else 
         .side-bar-left__group-list
           .sign-in
@@ -57,27 +43,24 @@
             = link_to new_user_session_path, class: "btn" do
               sign in
         
-    
     .side-bar-right
       -if user_signed_in?
-        .like-user-lists
-          .like-user-message
-            お気に入りユーザー
-          .like-user-box
-            - @following.each do |following|
-              .like-user-items
-                = link_to user_path(following.follow_id), class: "like-btn" do
-                  .like-user-items__icon
-                    = image_tag following.follow.image, class: "current-user-image", alt: "no image" do
-                      .like-user-items__nickname
-                        don
+        -# .like-user-lists
+        -#   .like-user-message
+        -#     お気に入りユーザー
+        -#   .like-user-box
+        -#     - @following.each do |following|
+        -#       .like-user-items
+        -#         = link_to user_path(following.follow_id), class: "like-btn" do
+        -#           .like-user-items__icon
+        -#             = image_tag following.follow.image, class: "current-user-image", alt: "no image" do
+        -#               .like-user-items__nickname
+                        
              
-
- 
         .like-image-lists
           .like-user-message
             お気に入り写真
-          .like-image-box
+          .like-image-box#favorite-lists
             - @favorites.each do |favorite|
               .like-image-items
                 = link_to "#", class: "like-btn" do
