@@ -1,5 +1,4 @@
 $(function(){
-
   function buildpost(data){
     var html = `
         <div class="app-main__body__group">
@@ -36,43 +35,22 @@ $(function(){
         </div>`
     return html;
   }
-  
-  $("#new_picture").on('submit', function(e){
-    e.preventDefault();
-    var formData = new FormData(this);
-    var url = $(this).attr('action');
-    
+
+  $('.signup__box').on('change', function(){
+    var select = $('option:selected').val();
+    console.log(select);
     $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
-      dataType: 'json',
-      processData: false,
-      contentType: false
+      type: 'GET',
+      url: '/pictures',
+      data: { judge: select },
+      dataType: 'json'
     })
-    .done(function(data){
-      $( function() {
-        $.ajax({
-          type: 'GET',
-          url: '/pictures',
-          data: { judge: 0 },
-          dataType: 'json'
-        })
-        .done(function(pictures){
-          $( '#post-body' ).empty();
-          pictures.forEach( function(picture) {
-            var html = buildpost(picture);
-            $('#post-body').append( html );
-          });
-        })
+    .done(function(pictures){
+      $( '#post-body' ).empty();
+      pictures.forEach( function(picture) {
+        var html = buildpost(picture);
+        $('#post-body').append( html );
       });
-      $(".submit-btn").removeAttr("disabled");
-      $('form')[0].reset();
-    })
-    .fail(function(){
-      alert('エラー');
     })
   })
-});
-
-
+})
