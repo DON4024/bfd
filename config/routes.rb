@@ -8,5 +8,10 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :edit, :update, :show] 
   resources :favorites, only: [:destroy]
   resources :relationships, only: [:create, :destroy]
+
+  namespace :api do
+    resources :pictures, only: :index, defaults: { format: 'json' }
+    resources :rankings, only: :index, defaults: { format: 'json' }
+  end
 end
 
