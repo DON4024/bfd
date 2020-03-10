@@ -3,7 +3,7 @@ $(function(){
   function buildpost(data){
     var html = `
         <div class="app-main__body__group">
-          <div class="picture-image">
+          <div class="picture-image" data-post-id=${data.id}>
             <a rel="nofollow" data-method="post" href="/pictures/8/add?judg_id=4"><img class="image-url" alt="image.url" src = ${data.image}>
             </a>
           </div>
@@ -37,6 +37,30 @@ $(function(){
     return html;
   }
   
+  var reloadPictures = function() {
+    var first_picture_id = $('.picture-image:first').data("post-id");
+    $.ajax({
+      url: "api/pictures",
+      type: 'get',
+      dataType: 'json',
+      data: {id: first_picture_id}
+    })
+    .done(function(pictures) {
+      if (pictures.length !== 0) {
+        var insertHTML = '';
+        $.each(pictures, function(i, picture) {
+          insertHTML += buildHTML(picture)
+        }); 
+        $('#post-body').prepend(insertHTML);
+      }
+    })
+    .fail(function() {
+      alert('error');
+    });
+  }
+
+
+
   $("#new_picture").on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -73,6 +97,7 @@ $(function(){
       alert('エラー');
     })
   })
+  setInterval(reloadPictures, 7000);
 });
 
 
