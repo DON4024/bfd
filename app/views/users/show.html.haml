@@ -38,7 +38,7 @@
                 don
   .favorite-box
     - @favorites.each do |favorite|
-      .my-image-items
+      .my-image-items{class: "favorite-id#{favorite.picture_id}"}
         = link_to "#", class: "favorite-btn" do
           .my-image-items__icon
             = image_tag favorite.picture.image.url, class: "users-image" 

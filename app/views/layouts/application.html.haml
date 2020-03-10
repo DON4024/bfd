@@ -62,14 +62,12 @@
             お気に入り写真
           .like-image-box#favorite-lists
             - @favorites.each do |favorite|
-              .like-image-items
+              .like-image-items{class: "favorite-id#{favorite.picture_id}"}
                 = link_to "#", class: "like-btn" do
                   .like-image-items__icon
                     = image_tag favorite.picture.image.url, class: "current-user-image" 
                       
       - else
-
-
 
   %body
     = render 'layouts/notifications'
