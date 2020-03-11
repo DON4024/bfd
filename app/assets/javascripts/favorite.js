@@ -16,6 +16,7 @@ $(function(){
   $('.image-favorite').on('click', function(e){
     e.preventDefault();
     var href = this.href;
+    console.log(this)
     var numbers = href.match(new RegExp("\\d+","g"));
     picture_id = numbers[0];
     judg_id = numbers[1];

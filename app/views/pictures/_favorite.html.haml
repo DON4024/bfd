@@ -1,9 +1,9 @@
-
-- if current_user.already_liked?(picture: favorite, favorite: 1)
-  = link_to "javascript:void(#{favorite.id}, 4)", method: :delete, class:"picture-image image-favorite" do
-    = image_tag favorite.image, class: "coolest-pic image-url"
-    %input{type: "hidden", name:"[0][picture_id:]"}
-- else
-  = link_to "javascript:void(#{favorite.id}, 4)", method: :post, class:"picture-image, image-favorite" do
-    = image_tag favorite.image, class: "coolest-pic image-url"
-    %input{type: "hidden", name:"[0][picture_id:]"}
+-if user_signed_in?
+  - if current_user.already_liked?(picture: favorite, favorite: 1)
+    = link_to "javascript:void(#{favorite.id}, 4)", method: :delete, class:"image-favorite" do
+      = image_tag favorite.image, class: "bests-pic image-url"
+      %input{type: "hidden", name:"[0][picture_id:]"}
+  - else
+    = link_to "javascript:void(#{favorite.id}, 4)", method: :post, class:"image-favorite" do
+      = image_tag favorite.image, class: "bests-pic image-url"
+      %input{type: "hidden", name:"[0][picture_id:]"}
