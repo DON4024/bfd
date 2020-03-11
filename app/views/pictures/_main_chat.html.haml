@@ -12,20 +12,23 @@
         .right-items__image{data:{coolest: {id: @coolest.id}}}
           = render partial: 'favorite', locals: { favorite: @coolest }
         .right-items__nickname
-          = link_to user_path(@coolest.user_id), class: "bests-name" do
-            = @coolest.user.nickname
+          - if user_signed_in?
+            = link_to user_path(@coolest.user_id), class: "bests-name" do
+              = @coolest.user.nickname
       .center-items
         .center-items__image{data:{cutest: {id: @cutest.id}}}
           = render partial: 'favorite', locals: { favorite: @cutest }
         .center-items__nickname
-          = link_to user_path(@cutest.user_id), class: "bests-name" do
-            = @cutest.user.nickname
+          - if user_signed_in?
+            = link_to user_path(@cutest.user_id), class: "bests-name" do
+              = @cutest.user.nickname
       .left-items
         .left-items__image{data:{creepiest: {id: @creepiest.id}}}
           = render partial: 'favorite', locals: { favorite: @creepiest }
         .left-items__nickname
-          = link_to user_path(@creepiest.user_id), class: "bests-name" do
-            = @creepiest.user.nickname
+          - if user_signed_in?  
+            = link_to user_path(@creepiest.user_id), class: "bests-name" do
+              = @creepiest.user.nickname
 
 
   .app-main__body#post-body
@@ -33,24 +36,28 @@
       = form_for "javascript:void()" do |f|
         = f.select :image, [ ["all",0], ["cool",1], ["cute",2], ["creepy",3]], {},  class: 'sort-box'
     - @pictures.each do |picture|
-      #app-main__body__group{class: "group-id#{picture.id}"}
+      #app-main__body__group
+        
         .picture-image{data:{post: {id: picture.id}}}
+          .review-items__icons{class: "group-id#{picture.id}"}
+            <i class="fas fa-expand fa-2x"></i>
+            - if user_signed_in?
+              .review-items__icons__left
+                = link_to picture_add_path(picture.id, judg_id: 1), method: :post do
+                  <i class="fas fa-grin-stars fa-3x"></i>
+              .review-items__icons__center
+                = link_to picture_add_path(picture.id, judg_id: 2), method: :post do
+                  <i class="far fa-grin-hearts fa-3x"></i>
+              .review-items__icons__right
+                = link_to picture_add_path(picture.id, judg_id: 3), method: :post do
+                  <i class="far fa-flushed fa-3x"></i>
           - if user_signed_in?
             = render partial: 'favorite', locals: { favorite: picture }
           - else 
             = image_tag picture.image.url, class: "image-url", alt: "image.url"
-          .review-items__icons
-            .review-items__icons__left
-              = link_to picture_add_path(picture.id, judg_id: 1), method: :post do
-                <i class="fas fa-grin-stars fa-3x"></i>
-            .review-items__icons__center
-              = link_to picture_add_path(picture.id, judg_id: 2), method: :post do
-                <i class="far fa-grin-hearts fa-3x"></i>
-            .review-items__icons__right
-              = link_to picture_add_path(picture.id, judg_id: 3), method: :post do
-                <i class="far fa-flushed fa-3x"></i>
-            .review-items__icons__open
-              <i class="fas fa-expand fa-2x"></i>
+          
+        .review-items__icons__open{class: "open-id#{picture.id}"}
+          
 
         
         .review-group
