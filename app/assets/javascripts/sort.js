@@ -36,9 +36,8 @@ $(function(){
     return html;
   }
 
-  $('.signup__box').on('change', function(){
+  $('.sort-box').on('change', function(){
     var select = $('option:selected').val();
-    console.log(select);
     $.ajax({
       type: 'GET',
       url: '/pictures',

@@ -49,7 +49,7 @@ $(function(){
       if (pictures.length !== 0) {
         var insertHTML = '';
         $.each(pictures, function(i, picture) {
-          insertHTML += buildHTML(picture)
+          insertHTML += buildpost(picture)
         }); 
         $('#post-body').prepend(insertHTML);
       }
@@ -97,7 +97,7 @@ $(function(){
       alert('エラー');
     })
   })
-  setInterval(reloadPictures, 7000);
+  setInterval(reloadPictures, 70000);
 });
 
 
