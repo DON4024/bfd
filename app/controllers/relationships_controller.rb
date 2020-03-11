@@ -6,7 +6,7 @@ class RelationshipsController < ApplicationController
     user = User.find(params[:follow_id])
     following = current_user.follow(user)
     if following.save
-      redirect_to root_path
+      redirect_to user_path(user.id)
     else
       redirect_to root_path
     end
@@ -16,17 +16,14 @@ class RelationshipsController < ApplicationController
     user = User.find(params[:follow_id])
     following = current_user.unfollow(user)
     if following.destroy
-      redirect_to root_path
+      redirect_to user_path(user.id)
     else
       redirect_to root_path
     end
   end
 
   private
-
   def set_user
     user = User.find(params[:follow_id])
   end
-
-
 end

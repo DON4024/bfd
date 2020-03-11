@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) 
     @pictuers = @user.pictures
     @following = Relationship.where(user_id: params[:id])
     @favorites = Favorite.where(user_id: params[:id])
@@ -27,10 +27,7 @@ class UsersController < ApplicationController
 
 
   private
-
   def user_params
     params.require(:user).permit(:nickname, :email, :password, :passwordconfirmation)
-    
   end
-
 end

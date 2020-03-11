@@ -11,18 +11,14 @@ $(function(){
             </div>`
             return html;
   };
-
-
   $('.image-favorite').on('click', function(e){
     e.preventDefault();
     var href = this.href;
-    console.log(this)
     var numbers = href.match(new RegExp("\\d+","g"));
     picture_id = numbers[0];
     judg_id = numbers[1];
     var num = picture_id;
     if($(`.favorite-id${num}`).length){
-      console.log("delete");
       var numbers = href.match(new RegExp("\\d+","g"));
       picture_id = numbers[0];
       judg_id = numbers[1];
@@ -42,7 +38,6 @@ $(function(){
       })
 
     } else {
-      console.log("post")
       var numbers = href.match(new RegExp("\\d+","g"));
       picture_id = numbers[0];
       judg_id = numbers[1];
@@ -62,32 +57,6 @@ $(function(){
       .fail(function(){
         alert('エラー');
       })
-
     }
   })
 })
-
-// pictures.some( function(picture) {
-//   var picture_image = picture.image;
-//   var num = picture_id;
-//   var number = picture_image.match(new RegExp(num));
-//   if(number) {
-//     var html = buildfavorite(picture, num);
-//     $('#favorite-lists').append(html);
-//     $('#favorite-lists').animate({ scrollTop: $('#favorite-lists')[0].scrollHeight});
-//     return true;
-//   }
-// });
-
-
-// pictures.some( function(picture) {
-//   var picture_image = picture.image;
-//   var num = picture_id;
-//   var number = picture_image.match(new RegExp(num));
-//   if(number) {
-//     var html = buildfavorite(picture, num);
-//     $('#favorite-lists').remove(html);
-//     $('#favorite-lists').animate({ scrollTop: $('#favorite-lists')[0].scrollHeight});
-//     return true;
-//   }
-// });

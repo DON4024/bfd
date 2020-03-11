@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-    
+  
 
     def create
       user_id = current_user.id
@@ -10,15 +10,17 @@ class FavoritesController < ApplicationController
     
       if @favorite.save
         respond_to do |format|
+          format.html { redirect_to root_path }
           format.json
         end
-      else
-        
+      elsif 
+        respond_to do |format|
+          format.html { redirect_to root_path }
+        end
       end
-
-      
     end
   
+
     def destroy
       user_id = current_user.id
       @picture = Picture.find(params[:id])
@@ -28,27 +30,11 @@ class FavoritesController < ApplicationController
 
       if @unfavorite.destroy
         respond_to do |format|
+          format.html { redirect_to root_path }
           format.json
         end
       else
         
       end
-    
-      
-      
-    
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     end
 end

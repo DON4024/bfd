@@ -18,10 +18,12 @@
                 = image_tag current_user.image.url, class: "current-user-image"
             - else
               = current_user.nickname 
+          -if user_signed_in?
+            = form_for "javascript:void()" do |f|
+              = f.select :image, [ ["all",0], ["cool",1], ["cute",2], ["creepy",3]], {},  class: 'sort-box'
           .form-post
             = form_for [@post] do |f|
               .field
-                -# = f.select :image, [ ["all",0], ["cool",1], ["cute",2], ["creepy",3]], {},  class: 'sort-box'
                 = f.label :image, class: 'post-image' do
                   = icon('fas', 'image', class: 'box__image')
                   = f.file_field :image, class: 'hidden'
@@ -61,7 +63,7 @@
                   .like-image-items__icon
                     = image_tag favorite.picture.image.url, class: "current-user-image" 
                       
-      - else
+
 
   %body
     = render 'layouts/notifications'

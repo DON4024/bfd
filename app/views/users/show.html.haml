@@ -22,8 +22,6 @@
       .btn-lists
         .sign-in
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
-        .write-message
-          = link_to "新規投稿", new_picture_path, class: 'btn'
         .edit-account
           = link_to " 編集 ", edit_user_path(current_user), class: 'btn'
     
