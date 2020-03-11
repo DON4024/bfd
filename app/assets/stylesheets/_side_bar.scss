@@ -83,7 +83,24 @@
         
       }
     }
-    
+    .sign-in {
+      @include box-prop (110px, 35px, "");
+      line-height: 35px;
+      text-align: center;
+      font-size: 20px;
+      border-radius: 10px;
+      box-shadow:  0 0 10px 10px rgba(rgb(14, 88, 185),0.2)inset;
+      margin: 7px 10px;
+      padding: 0 10px;
+      font-size: 18px;
+      .btn {
+        text-decoration: none;
+        color: black;
+      }
+    }
+    .write-message {
+      @extend .sign-in
+    }
   }
 }
 
