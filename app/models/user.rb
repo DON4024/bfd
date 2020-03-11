@@ -24,21 +24,10 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followers, through: :reverse_of_relationships, source: :user
   # fav_picturesは実在しないが、picturesは既に存在していてエラーになるので作成
-  # has_many :relationships, foreign_key: 'follow_id' #←あとで消す
-  # has_many :followers, through: :relationships, source: :user #←あとで消す
+  
   
   validates :nickname, presence: true
   mount_uploader :image, ImageUploader
-
-  # いいね機能で作ってみたが使わなかった
-  # def like(picture)
-  #   favorites.find_or_create_by(picture_id: picture.id)
-  # end
-
-  # def unlike(picture)
-  #   favorite = favorites.find_by(picture_id: picture.id)
-  #   favorite.destroy if favorite
-  # end
 
   def already_liked?(picture: , favorite: 0, cool: 0, cute: 0, creepy: 0)
     
@@ -96,8 +85,6 @@ class User < ApplicationRecord
       
     elsif judg == "4"
       return Favorite.find_by(picture_id: picture_id, user_id: user_id)
-      
     end
-    
   end
 end

@@ -3,8 +3,6 @@
   float: left;
   position: relative;
   &__appri-name {
-    // height: 120px;
-    // background-color: skyblue;
     border-radius: 40px;
     margin: 15px;
     background-image: url('bfd-logo.png');
@@ -19,7 +17,7 @@
     background-color: oldlace;
     padding: 0 20px 0 20px;
     .user-icon {
-      @include box-prop (140px, 140px, "");
+      @include box-prop (140px, 140px, none);
       line-height: 50px;
       text-align: center;
       font-size: 20px;
@@ -29,17 +27,19 @@
         text-decoration: none;
         color: black;
         .current-user-image {
-          width: 120px;
-          height: 120px;
+          @include box-prop (120px, 120px, none);
           text-align: center;
           border-radius: 60px;
           box-shadow:  0 0 10px 10px rgba(rgb(14, 88, 185),0.2)inset;
         }
       }
     }
+    .sort-box {
+      @include box-prop (100px, 30px, none);
+      margin: 20px;
+    }
     .form-post {
-      height: 200px;
-      width: 140px;
+      @include box-prop (140px, 200px, none);
       padding-bottom: 40px;
       position: absolute;
       bottom: 0;
@@ -48,31 +48,27 @@
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
         border-radius: 9px;
         .sort-box{
-          height: 40px;
-          width: 120px;
-          background-color: whitesmoke;
-          margin: 10px 10px;
+          @include box-prop (40px, 120px, whitesmoke);
+          margin: 10px;
         }
         .post-image {
           margin: 0 30px;
           .box__image{
             font-size: 5em;
             cursor: pointer;
-            
           }
           .hidden {
             display: none;
           }
         }
         .field-input {
+          width: 140px;
           margin-bottom: 10px;
           .text-box {
             width: 140px;
           }
           .submit-btn {
-            width: 140px;
-            height: 30px;
-            background-color: $color-38aef0;
+            @include box-prop (140px, 30px, $color-38aef0);
             color: $color-fff;
             line-height: 30px;
             padding: 0 20px 0 20px;
@@ -84,10 +80,9 @@
       }
     }
     .sign-in {
-      @include box-prop (110px, 35px, "");
+      @include box-prop (110px, 35px, none);
       line-height: 35px;
       text-align: center;
-      font-size: 20px;
       border-radius: 10px;
       box-shadow:  0 0 10px 10px rgba(rgb(14, 88, 185),0.2)inset;
       margin: 7px 10px;
@@ -109,8 +104,7 @@
   float: right;
   position: relative;
   .like-user-lists {
-    width: 100%;
-    height: 50vh;
+    @include box-prop (100%, 50vh, none);
     .like-user-message {
       font-weight: bold;
       text-align: center;
@@ -118,25 +112,21 @@
       border-top: 7px orange double;
     }
     .like-user-box {
-      overflow: scroll;
       height: calc(50vh - 50px);
+      overflow: scroll;
       .like-user-items {
-        width: 160px;
-        height: 50px;
+        @include box-prop (160px, 50px, none);
         margin: 10px auto;
         font-size: 20px;
         .like-btn {
           .like-user-items__icon {
             text-align: center;
-            
             .current-user-image {
-              width: 140px;
-              height: 140px;
+              @include box-prop (140px, 140px, none);
               box-shadow: 0 0 10px 10px rgba(231, 128, 11, 0.3);
           
               .like-user-items__nickname {
-                width: 20px;
-                height: 20px;
+                @include box-prop (20px, 20px, none);
                 line-height: 20px;
                 text-align: right;
               }
@@ -149,7 +139,6 @@
   }
   .like-image-lists {
     width: 100%;
-   
     position: absolute;
     bottom: 0;
     .like-user-message {
@@ -163,16 +152,14 @@
       overflow: scroll;
       height: calc(100vh - 40px);
       .like-image-items { 
-        width: 160px;
-        height: 50px;
+        @include box-prop (160px, 50px, none);
         margin: 10px auto;
         font-size: 20px;
         .like-btn {
           .like-image-items__icon { 
             text-align: center;
             .current-user-image {
-              width: 140px;
-              height: 140px;
+              @include box-prop (140px, 140px, none);
               border-radius: 70px;
               box-shadow:  0 0 10px 10px rgba(rgb(14, 88, 185),0.2);
             }

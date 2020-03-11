@@ -25,7 +25,6 @@ class Picture < ApplicationRecord
 
 
   def self.create_all_ranks(judge = 0) #Pictureクラスからデータを取ってくる処理なのでクラスメソッド！
-    
     if judge == "0"
       Picture.includes(:user).order('created_at desc')
     elsif judge == "1"
@@ -46,5 +45,4 @@ class Picture < ApplicationRecord
       Picture.find_by(id: Creepy.group(:picture_id).order('count(picture_id) desc').limit(1).pluck(:picture_id))
     end
   end
-
 end
