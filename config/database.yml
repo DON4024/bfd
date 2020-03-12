@@ -50,9 +50,12 @@ test:
 # production:
 #   <<: *default
 #   database: bfd_production
-#   username: root
-#   password: <%= ENV['DATABASE_PASSWORD'] %>
-#   socket: /var/lib/mysql/mysql.sock
+#   username: bfd
+#   password: <%= ENV['BFD_DATABASE_PASSWORD'] %>
+
+  # username: root
+  # password: <%= ENV['DATABASE_PASSWORD'] %>
+  # socket: /var/lib/mysql/mysql.sock
 
 
 production:
