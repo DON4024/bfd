@@ -7,28 +7,28 @@
         King of CUTE
       .list3
         King of CREEPY
-    .app-main__header__items 
-      .right-items
-        .right-items__image{data:{coolest: {id: @coolest.id}}}
-          = render partial: 'favorite', locals: { favorite: @coolest }
-        .right-items__nickname
-          - if user_signed_in?
-            = link_to user_path(@coolest.user_id), class: "bests-name" do
-              = @coolest.user.nickname
-      .center-items
-        .center-items__image{data:{cutest: {id: @cutest.id}}}
-          = render partial: 'favorite', locals: { favorite: @cutest }
-        .center-items__nickname
-          - if user_signed_in?
-            = link_to user_path(@cutest.user_id), class: "bests-name" do
-              = @cutest.user.nickname
-      .left-items
-        .left-items__image{data:{creepiest: {id: @creepiest.id}}}
-          = render partial: 'favorite', locals: { favorite: @creepiest }
-        .left-items__nickname
-          - if user_signed_in?  
-            = link_to user_path(@creepiest.user_id), class: "bests-name" do
-              = @creepiest.user.nickname
+    -# .app-main__header__items 
+    -#   .right-items
+    -#     .right-items__image{data:{coolest: {id: @coolest.id}}}
+    -#       = render partial: 'favorite', locals: { favorite: @coolest }
+    -#     .right-items__nickname
+    -#       - if user_signed_in?
+    -#         = link_to user_path(@coolest.user_id), class: "bests-name" do
+    -#           = @coolest.user.nickname
+    -#   .center-items
+    -#     .center-items__image{data:{cutest: {id: @cutest.id}}}
+    -#       = render partial: 'favorite', locals: { favorite: @cutest }
+    -#     .center-items__nickname
+    -#       - if user_signed_in?
+    -#         = link_to user_path(@cutest.user_id), class: "bests-name" do
+    -#           = @cutest.user.nickname
+    -#   .left-items
+    -#     .left-items__image{data:{creepiest: {id: @creepiest.id}}}
+    -#       = render partial: 'favorite', locals: { favorite: @creepiest }
+    -#     .left-items__nickname
+    -#       - if user_signed_in?  
+    -#         = link_to user_path(@creepiest.user_id), class: "bests-name" do
+    -#           = @creepiest.user.nickname
 
 
   .app-main__body#post-body
