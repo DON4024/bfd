@@ -47,30 +47,30 @@ $(function(){
 
 
 
-  var reloadBests = function() {
-      $.ajax({
-        url: "api/rankings",
-        type: 'get',
-        dataType: 'json'
-      })
-      .done(function(bests) {
-        $('.right-items').empty();
-        var coolesthtml = buildcoolestHTML(bests)
-        $('.right-items').append(coolesthtml);
+  // var reloadBests = function() {
+  //     $.ajax({
+  //       url: "api/rankings",
+  //       type: 'get',
+  //       dataType: 'json'
+  //     })
+  //     .done(function(bests) {
+  //       $('.right-items').empty();
+  //       var coolesthtml = buildcoolestHTML(bests)
+  //       $('.right-items').append(coolesthtml);
 
-        $('.center-items').empty();
-        var cutesthtml = buildcutestHTML(bests)
-        $('.center-items').append(cutesthtml);
+  //       $('.center-items').empty();
+  //       var cutesthtml = buildcutestHTML(bests)
+  //       $('.center-items').append(cutesthtml);
 
-        $('.left-items').empty();
-        var creepiesthtml = buildcreepiestHTML(bests)
-        $('.left-items').append(creepiesthtml);
-      })
-      .fail(function() {
-        alert('error ranking');
-      });
-    }
-    setInterval(reloadBests, 43200000);
+  //       $('.left-items').empty();
+  //       var creepiesthtml = buildcreepiestHTML(bests)
+  //       $('.left-items').append(creepiesthtml);
+  //     })
+  //     .fail(function() {
+  //       alert('error ranking');
+  //     });
+  //   }
+    // setInterval(reloadBests, 43200000);
 })
 
 

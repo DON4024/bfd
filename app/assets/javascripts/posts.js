@@ -132,7 +132,7 @@ $(function(){
       alert('エラー');
     })
   })
-  setInterval(reloadPictures, 70000);
+  // setInterval(reloadPictures, 70000);
 });
 
 
