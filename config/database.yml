@@ -56,6 +56,7 @@ test:
 
 production:
   <<: *default
+  database: bfd_production
   username: root
   # password: <%= ENV['DATABASE_PASSWORD'] %>
   password: bfd4024
