@@ -53,16 +53,19 @@ test:
 #   username: bfd
 #   password: <%= ENV['BFD_DATABASE_PASSWORD'] %>
 
-  # username: root
-  # password: <%= ENV['DATABASE_PASSWORD'] %>
-  # socket: /var/lib/mysql/mysql.sock
-
 
 production:
-  adapter:  mysql2   # postgresの場合はadapterをpostgresql
-  encoding: utf8
-  database: <%= ENV['DB_NAME'] %>
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  host:     <%= ENV['DB_HOSTNAME'] %>
-  port:     <%= ENV['DB_PORT'] %>
+  <<: *default
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
+
+
+# production:
+#   adapter:  mysql2   # postgresの場合はadapterをpostgresql
+#   encoding: utf8
+#   database: <%= ENV['DB_NAME'] %>
+#   username: <%= ENV['DB_USERNAME'] %>
+#   password: <%= ENV['DB_PASSWORD'] %>
+#   host:     <%= ENV['DB_HOSTNAME'] %>
+#   port:     <%= ENV['DB_PORT'] %>
