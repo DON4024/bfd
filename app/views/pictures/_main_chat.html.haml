@@ -8,7 +8,7 @@
       .list3
         King of CREEPY
     .app-main__header__items 
-      -unless @coolest.nil? && @cutest.nil? && @creepiest.nil?
+      -unless @coolest.nil? 
         .right-items
           .right-items__image{data:{coolest: {id: @coolest.id}}}
             = render partial: 'favorite', locals: { favorite: @coolest }
@@ -16,6 +16,7 @@
             - if user_signed_in?
               = link_to user_path(@coolest.user_id), class: "bests-name" do
                 = @coolest.user.nickname
+      -unless @cutest.nil?
         .center-items
           .center-items__image{data:{cutest: {id: @cutest.id}}}
             = render partial: 'favorite', locals: { favorite: @cutest }
@@ -23,6 +24,7 @@
             - if user_signed_in?
               = link_to user_path(@cutest.user_id), class: "bests-name" do
                 = @cutest.user.nickname
+      -unless @creepiest.nil?
         .left-items
           .left-items__image{data:{creepiest: {id: @creepiest.id}}}
             = render partial: 'favorite', locals: { favorite: @creepiest }
