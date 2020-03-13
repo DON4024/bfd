@@ -72,3 +72,7 @@ gem 'mini_magick'
 group :production do
   gem 'pg'
 end
+
+source "https://rubygems.org"
+
+ruby "2.5.1"
