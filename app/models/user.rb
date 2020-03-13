@@ -58,7 +58,7 @@ class User < ApplicationRecord
     self.followings.include?(other_user)
   end
 
-  def judgment_new(judg: judg, user_id: user_id, picture_id: picture_id)
+  def judgment_new(judg: judg(), user_id: user_id(), picture_id: picture_id())
     if judg == "1"
       return Cool.new(picture_id: picture_id, user_id: user_id)
       
@@ -73,7 +73,7 @@ class User < ApplicationRecord
     end
   end
 
-  def judgment_destroy(judg: judg, user_id: user_id, picture_id: picture_id)
+  def judgment_destroy(judg: judg(), user_id: user_id(), picture_id: picture_id())
     if judg == "1"
       return Cool.find_by(picture_id: picture_id, user_id: user_id)
       
