@@ -54,13 +54,13 @@ test:
 #   password: <%= ENV['BFD_DATABASE_PASSWORD'] %>
 
 
-production:
-  <<: *default
-  database: bfd_production
-  username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  # password: 'bfd4024'
-  socket: /var/lib/mysql/mysql.sock
+# production:
+#   <<: *default
+#   database: bfd_production
+#   username: root
+#   password: <%= ENV['DATABASE_PASSWORD'] %>
+#   # password: 'bfd4024'
+#   socket: /var/lib/mysql/mysql.sock
 
 
 # production:
@@ -71,3 +71,10 @@ production:
 #   password: <%= ENV['DB_PASSWORD'] %>
 #   host:     <%= ENV['DB_HOSTNAME'] %>
 #   port:     <%= ENV['DB_PORT'] %>
+
+production:
+#半角スペース２個分の空白を開ける
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
