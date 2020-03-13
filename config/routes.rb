@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pictures#index"
+  root "pictures#index"
   resources :pictures do
     post "add", to: "favorites#create"
     resources :comments, only: :create
