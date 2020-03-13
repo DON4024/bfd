@@ -15,7 +15,7 @@ class PicturesController < ApplicationController
       @following = Relationship.where(user_id: current_user.id)
     end
     respond_to do |format|
-      format.html
+      format.html 
       format.json
     end 
   end
