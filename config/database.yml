@@ -57,7 +57,8 @@ test:
 production:
   <<: *default
   username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  # password: <%= ENV['DATABASE_PASSWORD'] %>
+  password: bfd4024
   socket: /var/lib/mysql/mysql.sock
 
 
