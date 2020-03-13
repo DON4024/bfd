@@ -58,8 +58,8 @@ production:
   <<: *default
   database: bfd_production
   username: root
-  # password: <%= ENV['DATABASE_PASSWORD'] %>
-  password: 'bfd4024'
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  # password: 'bfd4024'
   socket: /var/lib/mysql/mysql.sock
 
 
