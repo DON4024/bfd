@@ -71,7 +71,7 @@ gem 'mini_magick'
 gem 'fog-aws'
 
 group :production do
-  gem 'pg'
+  gem 'pg'  '~> 1.2.2'
 end
 
 source "https://rubygems.org"
