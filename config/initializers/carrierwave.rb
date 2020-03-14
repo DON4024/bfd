@@ -3,9 +3,10 @@ require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
 if Rails.env.development? 
-  config.storage :file # 開発環境:public/uploades下に保存
-  config.enable_processing = false if Rails.env.test? #test:処理をスキップ
-
+  CarrierWave.configure do |config|
+    config.storage :file # 開発環境:public/uploades下に保存
+    config.enable_processing = false if Rails.env.test? #test:処理をスキップ
+  end
 
 elsif Rails.env.production? 
 
