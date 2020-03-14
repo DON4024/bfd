@@ -2,7 +2,7 @@
   @include box-prop (calc(100vw - 360px), 100vh, none);
   float: left;
   display: block;
-  overflow: scroll;
+  overflow: scroll; 
   padding: 0 3px;
   &__header{
     border-top: double 7px rgb(185, 14, 43);
@@ -35,7 +35,7 @@
         @import "header-items";
         .bests-pic {
           width: 100%;
-          height: auto;
+          height: 100%;
         }
         .bests-name {
           text-decoration: none;
