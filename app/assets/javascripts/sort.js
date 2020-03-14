@@ -70,6 +70,7 @@ $(function(){
     return html;
   }
   $('.sort-box').on('change', function(){
+    console.log("ok");
     var select = $('option:selected').val();
     $.ajax({
       type: 'GET',

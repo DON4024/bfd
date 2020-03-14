@@ -1,6 +1,5 @@
 $(function(){
   $('.move-flame').on('click', function(){
-    console.log(this)
     $(this).removeAttr("disabled");
     var selectopen = $(this).attr('class');
     selectopen = selectopen.replace( ' move-flame', '')
