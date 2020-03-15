@@ -1,4 +1,4 @@
-.wrapper {
+.video-wrapper {
   @include box-prop (calc(100vw - 360px), 100vh, pink);
   .video-header {
     @include box-prop (100%, 60px, blue);
