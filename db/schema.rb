@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200304104722) do
+ActiveRecord::Schema.define(version: 20200315115857) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "comments"
@@ -96,6 +96,15 @@ ActiveRecord::Schema.define(version: 20200304104722) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "url"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "content"
+    t.index ["user_id"], name: "index_videos_on_user_id", using: :btree
+  end
+
   add_foreign_key "comments", "pictures"
   add_foreign_key "comments", "users"
   add_foreign_key "cools", "pictures"
@@ -109,4 +118,5 @@ ActiveRecord::Schema.define(version: 20200304104722) do
   add_foreign_key "pictures", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"
+  add_foreign_key "videos", "users"
 end

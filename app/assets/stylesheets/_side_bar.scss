@@ -73,10 +73,7 @@
         }
       }
     }
-    .sort-box {
-      @include box-prop (100px, 30px, none);
-      margin: 20px;
-    }
+    
     .video-link {
       @include box-prop (110px, 35px, "");
       line-height: 35px;
@@ -91,11 +88,16 @@
         color: black;
       }
     }
+    .sort-box {
+      @include box-prop (100px, 30px, none);
+      margin: 20px;
+    }
     .form-post {
       @include box-prop (140px, 200px, none);
       padding-bottom: 40px;
       position: absolute;
       bottom: 0;
+      margin: 0 20px;
       .field {
         border-bottom: solid 6px #3f87ce;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
@@ -105,7 +107,6 @@
           margin: 10px;
         }
         .post-image {
-          margin: 0 30px;
           .box__image{
             font-size: 5em;
             cursor: pointer;
