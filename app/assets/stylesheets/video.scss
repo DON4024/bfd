@@ -1,0 +1,19 @@
+.video-header {
+  .video-body {
+    %table.video-body__table{
+      %tr {
+        display: flex;
+        %th {
+          background-color: yellow;
+        }
+        %td {
+          background-color: green;
+        }
+      }
+     
+    }
+    
+
+  }
+  
+}
