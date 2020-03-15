@@ -1,13 +1,11 @@
 $(function(){
-  $('.move-flame').on('click', function(){
-    $(this).removeAttr("disabled");
+  $('.move-btn').on('click', function(){
+    var href = this.href;
+    var numbers = href.match(new RegExp("group-id\\d+","g"));
     var selectopen = $(this).attr('class');
-    selectopen = selectopen.replace( ' move-flame', '')
-    if($(this).css("margin-left").length==5){
-      $(`.${selectopen}`).animate({'marginLeft':'0'},300);
-    }else {
-      $(`.${selectopen}`).animate({'marginLeft':'330px'},300);
-    }
+    selectopen = selectopen.replace( ' move-btn', '')
+    $( `.${numbers}` ).slideToggle(600);
+
   })
 })
 

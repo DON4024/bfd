@@ -35,17 +35,10 @@
 
 
   .app-main__body#post-body
-    -# -if user_signed_in?
-    -#   = form_for "javascript:void()" do |f|
-    -#     = f.select :image, [ ["all",0], ["cool",1], ["cute",2], ["creepy",3]], {},  class: 'sort-box'
     - @pictures.each do |picture|
       .app-main__body__group
         .picture-image{data:{post: {id: picture.id}}}
-          .move-flame{class: "group-id#{picture.id}"}
-            - if user_signed_in?
-              <i class="fas fa-expand fa-2x"></i>
-            .review-items__icons
-            
+          .move-flame
             - if user_signed_in?
               = render partial: 'favorite', locals: { favorite: picture }
             - else 
@@ -60,9 +53,11 @@
             .review-items__icons__list__right
               = link_to picture_add_path(picture.id, judg_id: 3), method: :post do
                 <i class="far fa-flushed fa-3x"></i>
-
+            - if user_signed_in?
+              = link_to "javascriot:void(group-id#{picture.id})", class:"move-btn" do
+                <i class="fas fa-expand fa-2x"></i>
         
-          .review-group
+          .review-group{class: "group-id#{picture.id}"}
             .review-group__items
               .picture-name
                 - if user_signed_in?
