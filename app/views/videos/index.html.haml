@@ -1,16 +1,16 @@
 .video-header
   コスプレ動画一覧
 .video-body
-  = @videos.each do |video|
-    %table.video-body__table
-      %tr.video-body__table-title
-        %th
-          title :
-        %td
-          =  video.content
-      %tr.video-body__table-url
-        %th
-          URL :
-        %td
-          = video.url
+  -# = @videos.each do |video|
+  %table.video-body__table
+    %tr.video-body__table-title
+      %th
+        title :
+      %td
+          video.content
+    %tr.video-body__table-url
+      %th
+        URL :
+      %td
+         video.url
 

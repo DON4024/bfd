@@ -1,19 +1,21 @@
-.video-header {
-  .video-body {
-    %table.video-body__table{
-      %tr {
-        display: flex;
-        %th {
-          background-color: yellow;
-        }
-        %td {
-          background-color: green;
+.wrapper {
+  @include box-prop (calc(100vw - 360px), 100vh, pink);
+  .video-header {
+    @include box-prop (100%, 60px, blue);
+    .video-body {
+      @include box-prop (100%, calc(100vh - 60px), none);
+      %table.video-body__table{
+        padding: 20px;
+        %tr {
+          display: flex;
+          %th {
+            background-color: yellow;
+          }
+          %td {
+            background-color: green;
+          }
         }
       }
-     
     }
-    
-
   }
-  
 }
