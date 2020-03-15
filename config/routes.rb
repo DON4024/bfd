@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :edit, :update, :show] 
   resources :favorites, only: [:destroy]
   resources :relationships, only: [:create, :destroy]
+  resources :videos, only: [:index, :create]
 
   namespace :api do
     resources :pictures, only: :index, defaults: { format: 'json' }

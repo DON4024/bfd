@@ -17,7 +17,15 @@
               = link_to user_path(current_user), class: "btn" do
                 = image_tag current_user.image.url, class: "current-user-image"
             - else
-        
+      - if @user.id == current_user.id
+        .form-post
+          = form_for [@video] do |f|
+            .field
+              = icon('fas', 'video', class: 'box__image')
+              .field-input
+                = f.text_field :content, class: "text-box", value: "例:衣装の作り方"
+                = f.text_field :url, class: "text-box", value: "URL"
+                = f.submit "投稿", class: 'submit-btn'
     
     .side-bar-right
       

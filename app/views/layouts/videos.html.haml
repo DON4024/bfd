@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Bfd
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    .side-bar-left
+      = link_to root_path, class: 'btn' do
+        .side-bar-left__appri-name
+      .side-bar-left__group-list
+        .user-icon
+          - if current_user.image
+            = link_to user_path(current_user), class: "btn" do
+              = image_tag current_user.image.url, class: "current-user-image"
+          - else
+      .form-post
+        = form_for [@video] do |f|
+          .field
+            = icon('fas', 'video', class: 'box__image')
+            .field-input
+              = f.text_field :content, class: "text-box", value: "例:衣装の作り方"
+              = f.text_field :url, class: "text-box", value: "URL"
+              = f.submit "投稿", class: 'submit-btn'
+    
+    .side-bar-right
+      
+
+
+  %body
+    
+    = yield
+

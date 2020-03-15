@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     @pictuers = @user.pictures
     @following = Relationship.where(user_id: params[:id])
     @favorites = Favorite.where(user_id: params[:id])
+    @video = Video.new
   end
 
 
