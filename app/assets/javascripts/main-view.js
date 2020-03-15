@@ -1,5 +1,5 @@
 $(function(){
-  $('.move-btn').on('click', function(){
+  $(document).on('click', '.move-btn', function(){
     var href = this.href;
     var numbers = href.match(new RegExp("group-id\\d+","g"));
     var selectopen = $(this).attr('class');

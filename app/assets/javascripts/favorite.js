@@ -11,7 +11,7 @@ $(function(){
             </div>`
             return html;
   };
-  $('.image-favorite').on('click', function(e){
+  $(document).on('click', '.image-favorite',function(e){
     e.preventDefault();
     var href = this.href;
     var numbers = href.match(new RegExp("\\d+","g"));
