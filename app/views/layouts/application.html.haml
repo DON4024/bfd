@@ -19,14 +19,14 @@
             - else
               = current_user.nickname
           .video-link
-            = link_to "動画URL一覧", videos_path, class: 'btn'
+            = link_to "動画URL", videos_path, class: 'btn'
           = form_for "javascript:void()" do |f|
             = f.select :image, [ ["all",0], ["cool",1], ["cute",2], ["creepy",3]], {},  class: 'sort-box'
-          .form-post
+          .form-post-f
             = form_for [@post] do |f|
-              .field
-                = f.label :image, class: 'post-image' do
-                  = icon('fas', 'image', class: 'box__image')
+              .field-f
+                = f.label :image, class: 'post-image-f' do
+                  = icon('fas', 'image', class: 'box__image-f')
                   = f.file_field :image, class: 'hidden'
                 .field-input
                   = f.text_field :content, class: "text-box"
