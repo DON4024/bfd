@@ -71,9 +71,4 @@ $(function(){
       });
     }
     setInterval(reloadBests, 43200000);
-})
-
-
-
-
-
+});
