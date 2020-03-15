@@ -1,11 +1,31 @@
 .video-wrapper {
   @include box-prop (calc(100vw - 360px), 100vh, pink);
+  margin: 0 180px;
   .video-header {
     @include box-prop (100%, 60px, blue);
     .video-body {
       @include box-prop (100%, calc(100vh - 60px), none);
+      display: flex;
+      .user-icon {
+        @include box-prop (52px, 52px, none);
+        line-height: 52px;
+        text-align: center;
+        margin: 10px 0 0;
+        .btn {
+          text-decoration: none;
+          color: black;
+          .user-image {
+            @include box-prop (52px, 52px, none);
+            text-align: center;
+            border-radius: 26px;
+            box-shadow:  0 0 10px 10px rgba(rgb(14, 88, 185),0.2)inset;
+          }
+        }
+      }
       %table.video-body__table{
-        padding: 20px;
+        width: 60px;
+        margin: 20px;
+        
         %tr {
           display: flex;
           %th {
