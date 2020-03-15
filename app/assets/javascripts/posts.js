@@ -111,7 +111,7 @@ $(function(){
         })
       });
       $(".submit-btn").removeAttr("disabled");
-
+      $('.field-input').val('');
       $('form')[0].reset();
     })
     .fail(function(){
