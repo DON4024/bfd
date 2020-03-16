@@ -12,12 +12,13 @@
   }
   .video-body {
     @include box-prop (100%, calc(100vh - 60px), none);
-    padding: 0.5em 1em;
-    color: #232323;
-    background: #fff8e8;
-    border-left: solid 10px #ffc06e;
+    
     padding: 20px;
     &__group {
+      padding: 0.5em 1em;
+      color: #232323;
+      background: #fff8e8;
+      border-left: solid 10px #ffc06e;
       display: flex;
       .user-icon {
         @include box-prop (72px, 72px, none);
