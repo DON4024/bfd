@@ -17,35 +17,38 @@
     background: #fff8e8;
     border-left: solid 10px #ffc06e;
     padding: 20px;
-    display: flex;
-    .user-icon {
-      @include box-prop (52px, 52px, none);
-      line-height: 52px;
-      text-align: center;
-      margin: 10px 0 0;
-      .btn {
-        text-decoration: none;
-        color: black;
-        .user-image {
-          @include box-prop (52px, 52px, none);
-          text-align: center;
-          border-radius: 26px;
-          box-shadow:  0 0 10px 10px rgba(rgb(14, 88, 185),0.2)inset;
+    &__group {
+      display: flex;
+      .user-icon {
+        @include box-prop (72px, 72px, none);
+        line-height: 72px;
+        text-align: center;
+        margin: 10px 0 0;
+        .btn {
+          text-decoration: none;
+          color: black;
+          .user-image {
+            @include box-prop (72px, 72px, none);
+            text-align: center;
+            border-radius: 36px;
+            box-shadow:  0 0 10px 10px rgba(rgb(14, 88, 185),0.2)inset;
+          }
+        }
+      }
+      %table{
+        width: 60px;
+        margin: 20px;
+        
+        %tr {
+          display: flex;
+          // %th {
+          // }
+          // %td {
+          // }
         }
       }
     }
-    %table{
-      width: 60px;
-      margin: 20px;
-      
-      %tr {
-        display: flex;
-        // %th {
-        // }
-        // %td {
-        // }
-      }
-    }
+    
   }
   
 }
