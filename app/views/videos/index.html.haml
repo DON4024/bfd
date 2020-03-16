@@ -2,7 +2,7 @@
   .video-header
     動画URL一覧
   .video-body
-    = @videos.each do |video|
+    - @videos.each do |video|
       .video-body__group
         .user-icon
           = link_to user_path(video.user.id), class: "btn" do
