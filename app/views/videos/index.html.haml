@@ -5,7 +5,7 @@
     = @videos.each do |video|
       .video-body__group
         .user-icon
-          = link_to user_path(current_user), class: "btn" do
+          = link_to user_path(video.user.id), class: "btn" do
             - image_tag video.user.image, class: "user-image"
         %table.video-body__table
           %tr.video-body__table-user
@@ -22,5 +22,5 @@
             %th
               URL :
             %td
-              = video.url
+              = link_to "video.url"
 
