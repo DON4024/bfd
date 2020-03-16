@@ -14,7 +14,7 @@
         .user-icon
           - if current_user.image
             = link_to user_path(current_user), class: "btn" do
-              - image_tag current_user.image.url, class: "current-user-image"
+              = image_tag current_user.image.url, class: "current-user-image"
           - else
       .form-post
         = form_for [@video] do |f|
