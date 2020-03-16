@@ -23,8 +23,8 @@
             .field
               = icon('fas', 'video', class: 'box__image')
               .field-input
-                = f.text_field :content, class: "text-box", value: "例:衣装の作り方"
-                = f.text_field :url, class: "text-box", value: "URL"
+                = f.text_field :content, class: "text-box", placeholder: "例:衣装の作り方"
+                = f.text_field :url, class: "text-box", placeholder: "URL"
                 = f.submit "投稿", class: 'submit-btn'
     
     .side-bar-right
