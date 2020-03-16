@@ -1,12 +1,13 @@
 .video-wrapper {
   @include box-prop (calc(100vw - 360px), 100vh, pink);
   margin: 0 180px;
-  border-bottom: double red 10px;
+  
   .video-header {
     @include box-prop (100%, 140px, blue);
+    border-bottom: double red 10px;
     .video-body {
       @include box-prop (100%, calc(100vh - 60px), none);
-      display: flex;
+      // d 
       padding: 20px;
       // .user-icon {
       //   @include box-prop (52px, 52px, none);
