@@ -18,8 +18,8 @@
                 = image_tag current_user.image.url, class: "current-user-image"
             - else
               = current_user.nickname
-          .video-link
-            = link_to "動画URL", videos_path, class: 'btn'
+          -# .video-link
+          -#   = link_to "動画URL", videos_path, class: 'btn'
           = form_for "javascript:void()" do |f|
             = f.select :image, [ ["all",0], ["cool",1], ["cute",2], ["creepy",3]], {},  class: 'sort-box'
           .form-post-f
