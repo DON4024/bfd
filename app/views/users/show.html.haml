@@ -5,7 +5,7 @@
         = @nickname
       .user-icon
         = link_to user_path(current_user), class: "user-btn" do
-          = image_tag @user.image, class: "user-image"
+          = image_tag @user.image.url, class: "user-image"
       
       - if @user.id == current_user.id
         

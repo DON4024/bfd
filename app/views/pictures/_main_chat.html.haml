@@ -44,15 +44,16 @@
             - else 
               = image_tag picture.image.url, class: "image-url", alt: "image.url"
           .review-items__icons__list
-            .review-items__icons__list__left
-              = link_to picture_add_path(picture.id, judg_id: 1), method: :post do
-                <i class="fas fa-grin-stars fa-3x"></i>
-            .review-items__icons__list__center
-              = link_to picture_add_path(picture.id, judg_id: 2), method: :post do
-                <i class="far fa-grin-hearts fa-3x"></i>
-            .review-items__icons__list__right
-              = link_to picture_add_path(picture.id, judg_id: 3), method: :post do
-                <i class="far fa-flushed fa-3x"></i>
+            - if user_signed_in?
+              .review-items__icons__list__left
+                = link_to picture_add_path(picture.id, judg_id: 1), method: :post do
+                  <i class="fas fa-grin-stars fa-3x"></i>
+              .review-items__icons__list__center
+                = link_to picture_add_path(picture.id, judg_id: 2), method: :post do
+                  <i class="far fa-grin-hearts fa-3x"></i>
+              .review-items__icons__list__right
+                = link_to picture_add_path(picture.id, judg_id: 3), method: :post do
+                  <i class="far fa-flushed fa-3x"></i>
             - if user_signed_in?
               = link_to "javascriot:void(group-id#{picture.id})", class:"move-btn" do
                 <i class="fas fa-expand fa-2x"></i>
