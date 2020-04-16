@@ -7,3 +7,6 @@
     = link_to "javascript:void(#{favorite.id}, 4)", method: :post, class:"image-favorite" do
       = image_tag favorite.image.url, class: "bests-pic image-url"
       
+-else
+  %p.note_header_main-view
+    you can see the picture here after logged in or signed up
