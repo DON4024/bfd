@@ -63,7 +63,7 @@
     position: relative;
     padding: 0 260px;
     .app-main__body__group {
-      @include box-prop (400px, 450px, none);
+      @include box-prop ('', 450px, none);
       box-shadow:  0 -10px 10px  rgba(rgb(14, 88, 185),0.3);
       margin: 30px 0 0;
       @include flex_between (flex, center);
