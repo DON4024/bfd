@@ -5,5 +5,5 @@
       
   - else
     = link_to "javascript:void(#{favorite.id}, 4)", method: :post, class:"image-favorite" do
-      = image_tag favorite.image, class: "bests-pic image-url"
+      = image_tag favorite.image.url, class: "bests-pic image-url"
       
