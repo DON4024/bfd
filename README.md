@@ -1,6 +1,6 @@
 # README
 
-** BFD \~who is the Best Fancy Dresser\~ **
+BFD \~who is the Best Fancy Dresser\~
 ====
 
 Overview
@@ -15,20 +15,20 @@ you can see the each best pictuer of cool, cute and creepy.
 市販のものや簡単な手作り、もしくは素人とは思えないような完成度の高いものまで様々です。そんな中でも特に、限りある自分の労力を費やして完成させた思い入れのあるコスプレ衣装を投稿して、ユーザーに評価してもらい順位がわかるようなアプリケーションがあればより多くの人にハロウィンやコスプレを楽しんでもらえるのではないかと考えました。
 
 
-We've enjoyed wearing a costume on Halloween for several years in Japan.
-Thier own costumes are sold at shops or made by hand. some of them are high quality works which we can't believe it's made by hand.
+We've enjoyed wearing costumes on Halloween for several years in Japan.
+most costumes are sold at shops or made by hand. However, some of them are high quality works which we can't believe it's made by hand.
 
-I think it's nice thing that there is the place where cosplayers can show their favorite, vauted costumes to the world and thier works can be praised.
+I think it's awesome if there is the place where cosplayers can show their favorite, vauted costumes to the world and thier works can be praised.
 
 ## Demo
 <image src="app/assets/images/bfd_index.png">
 
 
 ## Deployment instructions
-URL: https://bfd-new.herokuapp.com/
+URL: https://bfd-new.herokuapp.com/ </br>
 caution: Showing the top page needs a little time.
 
-Test account
+Test account</br>
   email address: test-cosplayer@gmail.com </br>
   password: test-cosplayer
 
@@ -47,11 +47,11 @@ jQuery
 
 ## Licence
 
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
+URL:https://github.com/tcnksm/tool/blob/master/LICENCE
 
 ## Author
 
-[tcnksm](https://github.com/DON4024)
+URL: https://github.com/DON4024
 
 
 ## features in the future
@@ -61,7 +61,6 @@ jQuery
 
 First, I'm going to add the feature of post videos about making thier costume.
 It can help who wants to make costume but doens't know how to make it.
-
 
 Second, I'm going to add the page where users can sell and buy handmade costumes to each other.
 It'll help Begginers who can't make costumes with enter the world of cosplay.
