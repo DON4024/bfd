@@ -1,6 +1,6 @@
 # README
 
-** BFD ~who is the Best Fancy Dresser~ **
+** BFD \~who is the Best Fancy Dresser\~ **
 ====
 
 Overview
@@ -29,7 +29,7 @@ URL: https://bfd-new.herokuapp.com/
 caution: Showing the top page needs a little time.
 
 Test account
-  email address: test-cosplayer@gmail.com
+  email address: test-cosplayer@gmail.com </br>
   password: test-cosplayer
 
 
@@ -55,10 +55,17 @@ jQuery
 
 
 ## features in the future
-I'm going to add the feature of post videos about making thier costume.
+予定の追加実装は、動画投稿機能と衣装購入機能を考えています。
+コスプレ初心者がどのようにして衣装を作ったら良いかわからず、諦めてしまうことを防ぐために、衣装作りの動画をアップできる機能
+また、衣装を売買できるようにすることで、衣装作成が困難な方を助け、副業として自分の力を活かす場所を提供できる。
+
+First, I'm going to add the feature of post videos about making thier costume.
 It can help who wants to make costume but doens't know how to make it.
 
-and add the page where user can handmage costumes from other user.
+
+Second, I'm going to add the page where users can sell and buy handmade costumes to each other.
+It'll help Begginers who can't make costumes with enter the world of cosplay.
+And, the feature can give the oppotunity for earning as second job to cosplayers.
 
 
 
@@ -190,6 +197,3 @@ has_many :fav_pictures, through: :favorites, source: :picture
 - belongs_to :user
 - belongs_to :picture
 - validates_uniqueness_of :picture_id, scope: :user_id
-
-
-
