@@ -3,7 +3,7 @@
 BFD \~who is the Best Fancy Dresser\~
 ====
 
-Overview
+## Overview
 コスプレ写真の投稿、３種類の評価(cool, cute, creepy)、写真のお気に入り登録、他ユーザーのフォロー、評価別ごとの並べ替え、毎日観点ごとの評価が一番高い写真の表示ができます。
 
 You can post pictures of you in cosplay, evaluate other user's pictures, add awesome ones to favorite, follow other users, sort the pictures in index by evaluation.
@@ -52,6 +52,16 @@ URL:https://github.com/tcnksm/tool/blob/master/LICENCE
 ## Author
 
 URL: https://github.com/DON4024
+
+
+## isuue in the future
+3つの評価を取り消すことができない
+ユーザーのアイコン画像を変更できない
+
+
+Users cannot cancel after they evaluate pictures.
+Users cannot change their own images for profiles.
+
 
 
 ## features in the future
