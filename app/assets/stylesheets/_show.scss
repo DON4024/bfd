@@ -18,8 +18,7 @@
         padding: 20px 0;
         .user-btn {
           .user-image {
-            width: 100px;
-            height: 100px;
+            @include box-prop(100px, 100px, none);
             text-align: center;
             border-radius: 50px;
             border: black 1px solid;
@@ -28,8 +27,7 @@
         }
       }
       .follow.icon {
-        width: 100px; 
-        height: 100%;
+        @include box-prop(100px, 100%, none);
         position: relative;
         .unfollow {
           border-radius: 3px;
